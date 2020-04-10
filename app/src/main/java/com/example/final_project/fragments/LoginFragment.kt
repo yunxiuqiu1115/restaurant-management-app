@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-
+import com.example.final_project.HomeActivity
 
 
 import com.example.final_project.R
@@ -107,8 +107,8 @@ class LoginFragment: Fragment(){
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithCredential:success")
-                    //val intent = Intent(this.context,BlackJackActivity::class.java)
-                    //startActivity(intent)
+                    val intent = Intent(this.context,HomeActivity::class.java)
+                    startActivity(intent)
 
                 } else {
                     // If sign in fails, display a message to the user.
@@ -133,10 +133,8 @@ class LoginFragment: Fragment(){
                     val uid = user!!.uid
                     Log.d("mylog", emailIn)
 //                    user!!.displayName
-                    //val intent = Intent(activity,BlackJackActivity::class.java)
-                    //intent.putExtra("username",emailIn)
-
-                    //startActivity(intent)
+                    val intent = Intent(activity, HomeActivity::class.java)
+                    startActivity(intent)
 
                 } else {
                     // If sign in fails, display a message to the user.
