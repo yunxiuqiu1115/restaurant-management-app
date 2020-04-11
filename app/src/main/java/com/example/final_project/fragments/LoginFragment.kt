@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 
 
 import com.example.final_project.R
+import com.example.final_project.activities.HomeActivity
 import com.example.final_project.viewModel.LoginViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -107,8 +108,8 @@ class LoginFragment: Fragment(){
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithCredential:success")
-                    //val intent = Intent(this.context,BlackJackActivity::class.java)
-                    //startActivity(intent)
+                    val intent = Intent(this.context, HomeActivity::class.java)
+                    startActivity(intent)
 
                 } else {
                     // If sign in fails, display a message to the user.
@@ -132,11 +133,8 @@ class LoginFragment: Fragment(){
                     val email = user!!.displayName
                     val uid = user!!.uid
                     Log.d("mylog", emailIn)
-//                    user!!.displayName
-                    //val intent = Intent(activity,BlackJackActivity::class.java)
-                    //intent.putExtra("username",emailIn)
-
-                    //startActivity(intent)
+                    val intent = Intent(this.context, HomeActivity::class.java)
+                    startActivity(intent)
 
                 } else {
                     // If sign in fails, display a message to the user.
