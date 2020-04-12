@@ -12,24 +12,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="sans-serif-smallcaps"
         android:text="Register"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="60dp"
-
-
         />
     <EditText
         android:id="@+id/username_R"
         android:hint="Username"
+        android:fontFamily="sans-serif-smallcaps"
+        android:paddingLeft="16dp"
         android:layout_width="250dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:textColorHint="#88807B"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/rounded_edittext_register_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/register"
         android:layout_marginTop="40dp"
+        android:textColor="#222021"
         android:maxLength="20"
         >
 
@@ -37,9 +41,14 @@
     <EditText
         android:id="@+id/email_R"
         android:hint="Email"
+        android:fontFamily="sans-serif-smallcaps"
+        android:paddingLeft="16dp"
         android:layout_width="250dp"
-        android:layout_height="wrap_content"
+        android:textColorHint="#88807B"
+        android:background="@drawable/rounded_edittext_register_login"
+        android:layout_height="50dp"
         android:textSize="25sp"
+        android:textColor="#222021"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username_R"
@@ -54,11 +63,16 @@
     <EditText
         android:id="@+id/password_R"
         android:hint="Password"
+        android:fontFamily="sans-serif-smallcaps"
+        android:paddingLeft="16dp"
+        android:textColorHint="#88807B"
         android:layout_width="250dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:textSize="25sp"
+        android:textColor="#222021"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/rounded_edittext_register_login"
         app:layout_constraintTop_toBottomOf="@+id/email_R"
         android:layout_marginTop="50dp"
         android:maxLength="30"
@@ -83,12 +97,13 @@
 
     <Button
         android:id="@+id/registerButton"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/password_R"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="40dp"
+        android:background="@drawable/rounded_button"
         android:text="Register New Account"
         >
 
