@@ -27,7 +27,7 @@
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:textColorHint="#88807B"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         android:background="@drawable/rounded_edittext_register_login"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,7 +47,7 @@
         android:textColorHint="#88807B"
         android:background="@drawable/rounded_edittext_register_login"
         android:layout_height="50dp"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:textColor="#222021"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,7 +68,7 @@
         android:textColorHint="#88807B"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:textColor="#222021"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -105,6 +105,7 @@
         android:layout_marginTop="40dp"
         android:background="@drawable/rounded_button"
         android:text="Register New Account"
+        android:textStyle="bold"
         >
 
     </Button>
