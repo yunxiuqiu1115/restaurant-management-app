@@ -16,13 +16,11 @@ import com.squareup.picasso.Picasso
 
 class DealViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     RecyclerView.ViewHolder(inflater.inflate(R.layout.deal_item,parent,false)){
-    private val foodImage: ImageView
-    private val foodDiscount: TextView
+    private val foodImage: ImageView = itemView.findViewById(R.id.food_image2)
+    private val foodDiscount: TextView = itemView.findViewById(R.id.food_discount2)
 
     init{
-        foodImage = itemView.findViewById(R.id.food_image2)
-//        foodName = itemView.findViewById(R.id.food_name)
-        foodDiscount = itemView.findViewById(R.id.food_discount2)
+        //        foodName = itemView.findViewById(R.id.food_name)
     }
 
     fun bind(food: Food){
@@ -42,7 +40,7 @@ class DealViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
             intent.putExtra("price",food.price)
             intent.putExtra("ordertimes",food.ordertimes)
             intent.putExtra("sort",food.sort)
-            it.getContext().startActivity(intent)
+            it.context.startActivity(intent)
         }
 
     }

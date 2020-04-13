@@ -48,12 +48,11 @@ class DessertFragment : Fragment() {
         db.collection("food")
             .whereEqualTo("sort","dessert")
             .get()
-            .addOnCompleteListener({task->
+            .addOnCompleteListener { task->
                 if(task.isSuccessful){
                     if(task.result!!.isEmpty){
                         Log.d("reach","Don't have a Menu")
-                    }
-                    else{
+                    } else{
                         dessList.clear()
                         for(document in task.result!!){
                             dessList.add(
@@ -76,7 +75,7 @@ class DessertFragment : Fragment() {
                 } else {
                     println("failed")
                 }
-            })
+            }
     }
 
 }

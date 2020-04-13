@@ -38,7 +38,7 @@ class DetailActivity : AppCompatActivity() {
         val settings = FirebaseFirestoreSettings.Builder()
             .setTimestampsInSnapshotsEnabled(true)
             .build()
-        db.setFirestoreSettings(settings)
+        db.firestoreSettings = settings
         get()
     }
 
@@ -46,7 +46,7 @@ class DetailActivity : AppCompatActivity() {
         super.onStart()
         get()
         popular_food_name.text = name
-        Picasso.get().load(image).resize(400, 400) // resizes the image to these dimensions (in pixel)
+        Picasso.get().load(image).resize(400, 400) // resize the image to these dimensions (in pixel)
             .centerCrop().into(popular_food_image)
         popular_food_description.text = description
         if(discount==0){
@@ -54,10 +54,10 @@ class DetailActivity : AppCompatActivity() {
         }
         else{
             val num = Math.round((price - (discount/100.0)*price) * 100.0) / 100.0
-            popular_food_price.text = "Original: $"+price.toString() + "\n\n Now: $" + num.toString() + "!"
+            popular_food_price.text = "Original: $$price\n\n Now: $$num!"
         }
-        Log.d("amount","test "+amount)
-        if(available==true){
+        Log.d("amount", "test $amount")
+        if(available){
             orderFood.visibility = View.VISIBLE
         }
         else{
@@ -144,12 +144,12 @@ class DetailActivity : AppCompatActivity() {
         db.collection("food")
             .document(id!!)
             .update(foodMap)
-            .addOnSuccessListener({
+            .addOnSuccessListener {
                 Log.d("Success","Task Completed!")
-            })
-            .addOnFailureListener({
+            }
+            .addOnFailureListener {
                 Log.d("Fail","Task Failed!")
-            })
+            }
     }
     private fun put(){
         val intent = Intent(this, DetailActivity::class.java)

@@ -28,7 +28,7 @@ class MainFragment : Fragment() {
         val settings = FirebaseFirestoreSettings.Builder()
             .setTimestampsInSnapshotsEnabled(true)
             .build()
-        db.setFirestoreSettings(settings)
+        db.firestoreSettings = settings
     }
 
     override fun onCreateView(
@@ -44,16 +44,15 @@ class MainFragment : Fragment() {
         val adapter = OrderAdapter(mainList)
         main_recyclerView.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL,false)
         main_recyclerView.adapter = adapter
-
+        Log.d("mylog","This is main page")
         db.collection("food")
             .whereEqualTo("sort","main")
             .get()
-            .addOnCompleteListener({task->
+            .addOnCompleteListener { task->
                 if(task.isSuccessful){
                     if(task.result!!.isEmpty){
                         Log.d("reach","Don't have a Menu")
-                    }
-                    else{
+                    } else{
                         mainList.clear()
                         for(document in task.result!!){
                             mainList.add(
@@ -75,7 +74,7 @@ class MainFragment : Fragment() {
                 } else {
                     println("failed")
                 }
-            })
+            }
     }
 
 }

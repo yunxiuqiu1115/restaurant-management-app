@@ -32,6 +32,7 @@ dependencies {
     //ViewModel
     def lifecycle_version = "2.2.0"
 
+
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     implementation 'com.google.firebase:firebase-storage:19.1.1'
     implementation 'com.google.firebase:firebase-database:19.2.1'
