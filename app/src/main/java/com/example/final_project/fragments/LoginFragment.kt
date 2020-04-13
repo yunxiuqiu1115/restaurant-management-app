@@ -9,21 +9,25 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.final_project.activities.HomeActivity
+
 
 
 import com.example.final_project.R
+import com.example.final_project.activities.HomeActivity
 import com.example.final_project.viewModel.LoginViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.FirebaseFirestore
 
 import kotlinx.android.synthetic.main.login_tab_fragment.*
+import kotlinx.android.synthetic.main.register_tab_fragment.*
 
 class LoginFragment: Fragment(){
 
@@ -104,8 +108,7 @@ class LoginFragment: Fragment(){
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithCredential:success")
-                    val intent = Intent(this.context,
-                        HomeActivity::class.java)
+                    val intent = Intent(this.context, HomeActivity::class.java)
                     startActivity(intent)
 
                 } else {
@@ -130,8 +133,7 @@ class LoginFragment: Fragment(){
                     val email = user!!.displayName
                     val uid = user!!.uid
                     Log.d("mylog", emailIn)
-//                    user!!.displayName
-                    val intent = Intent(activity, HomeActivity::class.java)
+                    val intent = Intent(this.context, HomeActivity::class.java)
                     startActivity(intent)
 
                 } else {

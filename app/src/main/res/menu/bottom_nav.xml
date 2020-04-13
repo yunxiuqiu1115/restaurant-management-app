@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:visible="true"
+        android:icon="@drawable/ic_action_home"/>
+
+    <item
+        android:id="@+id/order"
+        android:title="Order"
+        android:visible="true"
+        android:icon="@drawable/ic_action_order"/>
+
+    <item
+        android:id="@+id/service"
+        android:title="Service"
+        android:visible="true"
+        android:icon="@drawable/ic_action_service"/>
+
+    <item
+        android:id="@+id/accessory"
+        android:title="Accessory"
+        android:visible="true"
+        android:icon="@drawable/ic_action_accessory"/>
+</menu>

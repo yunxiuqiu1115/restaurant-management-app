@@ -12,22 +12,25 @@ import com.example.final_project.util.Food
 import com.squareup.picasso.Picasso
 
 
-class PopularViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
-    RecyclerView.ViewHolder(inflater.inflate(R.layout.food_item,parent,false)){
+class OrderViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
+    RecyclerView.ViewHolder(inflater.inflate(R.layout.menu_item,parent,false)){
     private val foodImage: ImageView
-//    private lateinit var activity: AppCompatActivity
+    //    private lateinit var activity: AppCompatActivity
     private val foodName: TextView
+    private val price : TextView
 
     init{
-        foodImage = itemView.findViewById(R.id.food_image)
-        foodName = itemView.findViewById(R.id.food_name)
+        foodImage = itemView.findViewById(R.id.image_view)
+        foodName = itemView.findViewById(R.id.menu_food_name)
+        price = itemView.findViewById(R.id.menu_food_price)
 //        activity = HomeActivity()
     }
 
     fun bind(food: Food){
         foodName?.text = food.name
-        Picasso.get().load(food.image).resize(400, 400) // resizes the image to these dimensions (in pixel)
+        Picasso.get().load(food.image).resize(250, 250) // resizes the image to these dimensions (in pixel)
             .centerCrop().into(foodImage)
+        price.text = "$ "+food.price.toString()
 
         foodImage.setOnClickListener{
             val intent = Intent(it.getContext(), DetailActivity::class.java)
@@ -48,13 +51,13 @@ class PopularViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
 
 }
 
-class PopularAdapter(private val list:ArrayList<Food>)
-    : RecyclerView.Adapter<PopularViewHolder>(){
-    override fun onCreateViewHolder(parent: ViewGroup, viewType:Int):PopularViewHolder{
+class OrderAdapter(private val list:ArrayList<Food>)
+    : RecyclerView.Adapter<OrderViewHolder>(){
+    override fun onCreateViewHolder(parent: ViewGroup, viewType:Int):OrderViewHolder{
         val inflater = LayoutInflater.from(parent.context)
-        return PopularViewHolder(inflater,parent)
+        return OrderViewHolder(inflater,parent)
     }
-    override fun onBindViewHolder(holder:PopularViewHolder,position:Int){
+    override fun onBindViewHolder(holder:OrderViewHolder,position:Int){
         val popularFood:Food = list[position]
         holder.bind(popularFood)
     }

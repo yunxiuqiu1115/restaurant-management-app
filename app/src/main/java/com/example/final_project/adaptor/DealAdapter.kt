@@ -2,31 +2,32 @@ package com.example.final_project.adaptor
 
 import android.content.Intent
 import android.view.LayoutInflater
+import android.view.MotionEvent
+import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.final_project.R
 import com.example.final_project.activities.DetailActivity
 import com.example.final_project.util.Food
 import com.squareup.picasso.Picasso
 
-
-class PopularViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
-    RecyclerView.ViewHolder(inflater.inflate(R.layout.food_item,parent,false)){
+class DealViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
+    RecyclerView.ViewHolder(inflater.inflate(R.layout.deal_item,parent,false)){
     private val foodImage: ImageView
-//    private lateinit var activity: AppCompatActivity
-    private val foodName: TextView
+    private val foodDiscount: TextView
 
     init{
-        foodImage = itemView.findViewById(R.id.food_image)
-        foodName = itemView.findViewById(R.id.food_name)
-//        activity = HomeActivity()
+        foodImage = itemView.findViewById(R.id.food_image2)
+//        foodName = itemView.findViewById(R.id.food_name)
+        foodDiscount = itemView.findViewById(R.id.food_discount2)
     }
 
     fun bind(food: Food){
-        foodName?.text = food.name
-        Picasso.get().load(food.image).resize(400, 400) // resizes the image to these dimensions (in pixel)
+        foodDiscount?.text = food.discount.toString() + "% OFF!"
+        Picasso.get().load(food.image).resize(500, 500) // resizes the image to these dimensions (in pixel)
             .centerCrop().into(foodImage)
 
         foodImage.setOnClickListener{
@@ -48,13 +49,13 @@ class PopularViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
 
 }
 
-class PopularAdapter(private val list:ArrayList<Food>)
-    : RecyclerView.Adapter<PopularViewHolder>(){
-    override fun onCreateViewHolder(parent: ViewGroup, viewType:Int):PopularViewHolder{
+class DealAdapter(private val list:ArrayList<Food>)
+    : RecyclerView.Adapter<DealViewHolder>(){
+    override fun onCreateViewHolder(parent: ViewGroup, viewType:Int):DealViewHolder{
         val inflater = LayoutInflater.from(parent.context)
-        return PopularViewHolder(inflater,parent)
+        return DealViewHolder(inflater,parent)
     }
-    override fun onBindViewHolder(holder:PopularViewHolder,position:Int){
+    override fun onBindViewHolder(holder:DealViewHolder,position:Int){
         val popularFood:Food = list[position]
         holder.bind(popularFood)
     }

@@ -28,7 +28,5 @@ class MainActivity : AppCompatActivity() {
         viewpager_main?.adapter = adapter
 
         tabs_main.setupWithViewPager(viewpager_main)
-
-
     }
 }

@@ -1,7 +1,14 @@
 package com.example.final_project.util
 
 data class Food (
-    val id:String,
-    val name:String,
-    val image:String
+    var id:String,
+    var name:String,
+    val amount:Int,
+    val description:String,
+    val available:Boolean,
+    val image:String,
+    val discount:Int,
+    val ordertimes:Int,
+    val price:Double,
+    val sort:String
 )

@@ -10,28 +10,29 @@
         >
 
         <ImageView
-            android:id="@+id/food_image"
+            android:id="@+id/food_image2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:alpha="0.75"
             android:layout_marginRight="20dp"
             android:layout_centerHorizontal="true"
             android:textAlignment="center" />
 
         <TextView
-            android:id="@+id/food_name"
+            android:id="@+id/food_discount2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textColor="#fff"
-            android:alpha="0.9"
             android:textStyle="bold"
             android:fontFamily="sans-serif-smallcaps"
-            android:textSize="24sp"
+            android:textSize="32sp"
             android:layout_centerHorizontal="true"
-            android:layout_alignLeft="@+id/food_image"
-            android:layout_alignRight="@+id/food_image"
-            android:layout_alignBottom="@+id/food_image"
+            android:layout_alignLeft="@+id/food_image2"
+            android:layout_alignRight="@+id/food_image2"
+            android:layout_alignBottom="@+id/food_image2"
+            android:layout_alignTop="@+id/food_image2"
             android:textAlignment="center" />
     </RelativeLayout>
 
