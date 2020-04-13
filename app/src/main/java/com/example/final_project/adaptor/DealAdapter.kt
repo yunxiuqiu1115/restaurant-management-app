@@ -41,6 +41,7 @@ class DealViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
             intent.putExtra("image",food.image)
             intent.putExtra("price",food.price)
             intent.putExtra("ordertimes",food.ordertimes)
+            intent.putExtra("sort",food.sort)
             it.getContext().startActivity(intent)
         }
 

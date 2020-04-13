@@ -29,6 +29,7 @@ class DetailActivity : AppCompatActivity() {
     private var amount = 0
     lateinit var image:String
     private var price = 0.0
+    lateinit var sort:String
     var amountArray:ArrayList<Int> = ArrayList()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,6 +86,7 @@ class DetailActivity : AppCompatActivity() {
         image = intent!!.getStringExtra("image")
         price = intent!!.getDoubleExtra("price",price)
         ordertimes = intent!!.getIntExtra("ordertimes",ordertimes)
+        sort = intent!!.getStringExtra("sort")
     }
     private fun dialogView(){
         val dialogView = LayoutInflater.from(this).inflate(R.layout.order_food,null)
@@ -138,6 +140,7 @@ class DetailActivity : AppCompatActivity() {
         }
         foodMap["image"] = image
         foodMap["price"] = price
+        foodMap["sort"] = sort
         db.collection("food")
             .document(id!!)
             .update(foodMap)
@@ -159,6 +162,7 @@ class DetailActivity : AppCompatActivity() {
         intent.putExtra("image",image)
         intent.putExtra("price",price)
         intent.putExtra("ordertimes",ordertimes)
+        intent.putExtra("sort",sort)
         startActivity(intent)
     }
 
