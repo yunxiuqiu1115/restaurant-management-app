@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name">final_project</string>
+    <string name="full_name">Yunxiu Qiu</string>
+    <string name="back_to_home">Back to\nHome</string>
+    <string name="username_title">Username</string>
+    <string name="username">"@yunxiuqiu"</string>
+    <string name="phone_title">Phone</string>
+    <string name="phone">+1 484 566 4223</string>
+    <string name="address_title">Address</string>
+    <string name="address">City, Street</string>
+    <string name="email_title">Email</string>
+    <string name="email">yunxiuqiu@gmail.com</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:background="@drawable/bg"
+    android:background="@drawable/bg_bottom2"
     tools:context=".activities.DetailActivity">
 
     <TextView
@@ -62,6 +62,7 @@
     <TextView
         android:id="@+id/popular_food_price"
         android:layout_width="wrap_content"
+        android:textColor="@color/TextColor"
         android:layout_height="wrap_content"
         android:layout_below="@+id/popular_food_description"
         android:layout_marginTop="12dp"

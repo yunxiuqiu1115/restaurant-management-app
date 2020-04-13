@@ -8,4 +8,9 @@
     <color name="order">#C9379D</color>
     <color name="service">#03DAC5</color>
     <color name="accesory">#1194AA</color>
+    <color name="colorSecondary">#E75370</color>
+    <color name="colorSecondaryDark">#C35CEF</color>
+    <color name="TextColor">#80000000</color>
+
+
 </resources>
