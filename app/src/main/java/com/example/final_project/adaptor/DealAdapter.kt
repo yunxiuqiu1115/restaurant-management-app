@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.final_project.R
+import com.example.final_project.activities.DetailActivity
 import com.example.final_project.util.Food
 import com.squareup.picasso.Picasso
 
@@ -24,10 +25,24 @@ class DealViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         foodDiscount = itemView.findViewById(R.id.food_discount2)
     }
 
-    fun bind(popularFood: Food){
-        foodDiscount?.text = popularFood.discount.toString() + "% OFF!"
-        Picasso.get().load(popularFood.image).resize(500, 500) // resizes the image to these dimensions (in pixel)
+    fun bind(food: Food){
+        foodDiscount?.text = food.discount.toString() + "% OFF!"
+        Picasso.get().load(food.image).resize(500, 500) // resizes the image to these dimensions (in pixel)
             .centerCrop().into(foodImage)
+
+        foodImage.setOnClickListener{
+            val intent = Intent(it.getContext(), DetailActivity::class.java)
+            intent.putExtra("id",food.id)
+            intent.putExtra("name",food.name)
+            intent.putExtra("description",food.description)
+            intent.putExtra("discount",food.discount)
+            intent.putExtra("available",food.available)
+            intent.putExtra("amount",food.amount)
+            intent.putExtra("image",food.image)
+            intent.putExtra("price",food.price)
+            intent.putExtra("ordertimes",food.ordertimes)
+            it.getContext().startActivity(intent)
+        }
 
     }
 

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@drawable/bg"
+    tools:context=".activities.DetailActivity">
+
+    <TextView
+        android:id="@+id/popular_food_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="60sp"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <ImageView
+            android:id="@+id/popular_food_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/soldOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textSize="40sp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignLeft="@+id/popular_food_image"
+            android:layout_alignRight="@+id/popular_food_image"
+            android:layout_alignBottom="@+id/popular_food_image"
+            android:layout_alignTop="@+id/popular_food_image"
+            android:textAlignment="center" />
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/popular_food_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/popular_food_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/popular_food_description"
+        android:layout_marginTop="12dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="30sp"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/back_button"
+        android:text="Back"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/rounded_button"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/orderFood"
+        android:text="Order"
+        android:layout_marginTop="15dp"
+        android:visibility="invisible"
+        android:background="@drawable/rounded_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

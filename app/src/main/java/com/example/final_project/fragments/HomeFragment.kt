@@ -66,7 +66,8 @@ class HomeFragment : Fragment() {
                                 document.get("available").toString().toBoolean(),
                                 document.get("image").toString(),
                                 document.get("discount").toString().toInt(),
-                                document.get("ordertimes").toString().toInt()
+                                document.get("ordertimes").toString().toInt(),
+                                document.get("price").toString().toDouble()
                             )
                         )
                     }

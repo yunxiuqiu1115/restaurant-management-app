@@ -8,5 +8,6 @@ data class Food (
     val available:Boolean,
     val image:String,
     val discount:Int,
-    val ordertimes:Int
+    val ordertimes:Int,
+    val price:Double
 )
