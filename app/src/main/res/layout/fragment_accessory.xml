@@ -8,19 +8,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:background="@drawable/bg"
         >
 
         <TextView
             android:id="@+id/title"
             android:fontFamily="sans-serif-smallcaps"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
-            android:textColor="#fff"
+            android:textColor="@color/TextColor"
             android:alpha="0.75"
             android:textSize="32dp"
             android:text="CC's steakhouse"
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:textSize="25dp"
             android:text="XX N Central Ave \nClayton, MO 63105"
-            android:textColor="#fff"
+            android:textColor="@color/TextColor"
             android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/screenshot_map">
@@ -66,7 +66,7 @@
             android:fontFamily="sans-serif-smallcaps"
             android:textSize="25dp"
             android:text="Bussiness Time: \n 7am - 9pm, M-F"
-            android:textColor="#fff"
+            android:textColor="@color/TextColor"
             android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/hint">
@@ -82,7 +82,7 @@
             android:textSize="25dp"
             android:text="314-888-8888\n deli@steak.co"
             android:fontFamily="sans-serif-smallcaps"
-            android:textColor="#fff"
+            android:textColor="@color/TextColor"
             android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/open_time">

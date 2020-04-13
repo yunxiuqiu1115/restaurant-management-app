@@ -1,29 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="10dp"
+    app:cardBackgroundColor="#fff"
+    card_view:cardUseCompatPadding="true"
+    card_view:cardElevation="3dp"
+    android:background="#fff"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/image_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="185dp"/>
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="160dp" />
 
         <TextView
             android:id="@+id/menu_food_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/image_view"
-            android:fontFamily="sans-serif-smallcaps"
-            android:textColor="@android:color/white"
             android:alpha="0.8"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textColor="@color/TextColor"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -31,14 +37,14 @@
             android:id="@+id/menu_food_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-smallcaps"
             android:layout_below="@id/menu_food_name"
-            android:textColor="@android:color/white"
+            android:layout_toEndOf="@id/image_view"
             android:alpha="0.8"
-            android:textStyle="bold"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textColor="@color/TextColor"
             android:textSize="20sp"
-            android:layout_toEndOf="@id/image_view" />
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
-</LinearLayout>
+</androidx.cardview.widget.CardView>
