@@ -1,14 +1,13 @@
-package com.example.final_project
+package com.example.final_project.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
+import com.example.final_project.R
 
 
 import com.example.final_project.adaptor.ViewPagerAdapter
 import com.example.final_project.fragments.LoginFragment
 import com.example.final_project.fragments.SignUpFragment
-import com.google.firebase.FirebaseApp
 import kotlinx.android.synthetic.main.login_page_tab_holder.*
 
 // This is the login page

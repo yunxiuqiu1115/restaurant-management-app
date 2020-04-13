@@ -1,9 +1,11 @@
-package com.example.final_project
+package com.example.final_project.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.final_project.R
 import com.example.final_project.adaptor.PopularAdapter
 import com.example.final_project.util.Food
 import kotlinx.android.synthetic.main.activity_home.*
@@ -38,5 +40,8 @@ class HomeActivity : AppCompatActivity() {
         recyclerView.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
         recyclerView.adapter = adapter
         adapter.notifyDataSetChanged()
+
+        val intent = Intent(this,InfoActivity::class.java)
+        startActivity(intent)
     }
 }
