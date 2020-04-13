@@ -11,6 +11,7 @@
 
         <ImageView
             android:id="@+id/food_image"
+            android:background="@drawable/round_outline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"

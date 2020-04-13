@@ -26,6 +26,7 @@
                 />
 
             <TextView
+                android:id="@+id/profile_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/full_name"
@@ -95,6 +96,7 @@
                         style="@style/TextBlackTitle"/>
 
                     <TextView
+                        android:id="@+id/profile_username"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/username"
@@ -132,6 +134,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/phone"
+                        android:id="@+id/profile_phone"
                         style="@style/TextDescription"/>
 
                 </LinearLayout>
@@ -163,6 +166,7 @@
                         style="@style/TextBlackTitle"/>
 
                     <TextView
+                        android:id="@+id/profile_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/email"
@@ -197,6 +201,7 @@
                         style="@style/TextBlackTitle"/>
 
                     <TextView
+                        android:id="@+id/profile_address"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/address"
@@ -231,6 +236,7 @@
                         style="@style/TextBlackTitle"/>
 
                     <TextView
+                        android:id="@+id/profile_birthday"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="11/15/1995"
