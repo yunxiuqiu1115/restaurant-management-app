@@ -7,28 +7,22 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.final_project.R
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreSettings
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ServiceFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ServiceFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    val mAuth = FirebaseAuth.getInstance()
+    lateinit var db : FirebaseFirestore
+    private val uid =  mAuth.uid
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+        db = FirebaseFirestore.getInstance()
+        val settings = FirebaseFirestoreSettings.Builder()
+            .setTimestampsInSnapshotsEnabled(true)
+            .build()
+        db.setFirestoreSettings(settings)
     }
 
     override fun onCreateView(
@@ -39,23 +33,35 @@ class ServiceFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_service, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ServiceFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ServiceFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onStart(){
+        super.onStart()
+        db.collection("users")
+            .whereEqualTo("uid",uid)
+            .get()
+            .addOnCompleteListener({task->
+                if(task.isSuccessful){
+                    if(task.result!!.isEmpty){
+                        createUser()
+
+                    }
+                    else{
+                        for(document in task.result!!){
+
+                        }
+                    }
                 }
-            }
+            })
+    }
+
+    private fun createUser(){
+        val uid = mAuth.uid?:""
+        val address = "Address: "
+        val name = "Username: "
+        val birthday = "01/01/1990"
+        val email = mAuth.currentUser!!.email
+        val username = mAuth.currentUser!!.displayName
+        val phone = "+1 585 077 2221"
+
+
     }
 }
