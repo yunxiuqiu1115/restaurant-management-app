@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.final_project.R
 import com.example.final_project.activities.DetailActivity
 import com.example.final_project.util.Food
+import com.google.android.material.shape.RoundedCornerTreatment
 import com.squareup.picasso.Picasso
 
 class DealViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
@@ -27,6 +28,7 @@ class DealViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         foodDiscount?.text = food.discount.toString() + "% OFF!"
         Picasso.get().load(food.image).resize(500, 500) // resizes the image to these dimensions (in pixel)
             .centerCrop().into(foodImage)
+        foodImage.setClipToOutline(true)
 
         foodImage.setOnClickListener{
             val intent = Intent(it.getContext(), DetailActivity::class.java)

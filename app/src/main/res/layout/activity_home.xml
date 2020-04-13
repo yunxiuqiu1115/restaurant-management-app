@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         app:cnb_unselectedColor="#D3D3D3"
-        android:background="#fff"
+        android:background="#F7F7F7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:cnb_menuResource="@menu/bottom_menu"/>
 

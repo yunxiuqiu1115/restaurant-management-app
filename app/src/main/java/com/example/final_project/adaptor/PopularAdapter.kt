@@ -28,6 +28,7 @@ class PopularViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         foodName?.text = food.name
         Picasso.get().load(food.image).resize(400, 400) // resizes the image to these dimensions (in pixel)
             .centerCrop().into(foodImage)
+        foodImage.setClipToOutline(true)
 
         foodImage.setOnClickListener{
             val intent = Intent(it.getContext(), DetailActivity::class.java)

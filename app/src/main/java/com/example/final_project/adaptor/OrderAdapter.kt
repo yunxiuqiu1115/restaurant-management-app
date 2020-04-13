@@ -30,6 +30,7 @@ class OrderViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         foodName?.text = food.name
         Picasso.get().load(food.image).resize(250, 250) // resizes the image to these dimensions (in pixel)
             .centerCrop().into(foodImage)
+        foodImage.setClipToOutline(true)
         price.text = "$ "+food.price.toString()
 
         foodImage.setOnClickListener{
