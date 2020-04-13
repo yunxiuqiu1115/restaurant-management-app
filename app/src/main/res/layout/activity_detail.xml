@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:background="@drawable/bg_bottom2"
+    android:background="#fff"
     tools:context=".activities.DetailActivity">
 
     <TextView
@@ -15,6 +15,7 @@
         android:layout_marginTop="24dp"
         android:fontFamily="sans-serif-smallcaps"
         android:textSize="60sp"
+        android:textColor="@color/TextColor"
         android:layout_centerHorizontal="true"
         android:textAlignment="center" />
 
@@ -54,6 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        android:textColor="@color/TextColor"
         android:fontFamily="sans-serif-smallcaps"
         android:textSize="20sp"
         android:layout_centerHorizontal="true"
