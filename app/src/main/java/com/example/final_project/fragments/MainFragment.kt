@@ -68,7 +68,6 @@ class MainFragment : Fragment() {
                                     document.get("ordertimes").toString().toInt(),
                                     document.get("price").toString().toDouble(),
                                     document.get("sort").toString()
-
                                 ))
                         }
                         adapter.notifyDataSetChanged()
