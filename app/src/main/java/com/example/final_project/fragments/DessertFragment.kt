@@ -28,7 +28,7 @@ class DessertFragment : Fragment() {
         val settings = FirebaseFirestoreSettings.Builder()
             .setTimestampsInSnapshotsEnabled(true)
             .build()
-        db.setFirestoreSettings(settings)
+        db.firestoreSettings = settings
     }
 
     override fun onCreateView(

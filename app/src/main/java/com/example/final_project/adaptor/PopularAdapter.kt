@@ -28,10 +28,10 @@ class PopularViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         foodName?.text = food.name
         Picasso.get().load(food.image).resize(400, 400) // resizes the image to these dimensions (in pixel)
             .centerCrop().into(foodImage)
-        foodImage.setClipToOutline(true)
+        foodImage.clipToOutline = true
 
         foodImage.setOnClickListener{
-            val intent = Intent(it.getContext(), DetailActivity::class.java)
+            val intent = Intent(it.context, DetailActivity::class.java)
             intent.putExtra("id",food.id)
             intent.putExtra("name",food.name)
             intent.putExtra("description",food.description)
@@ -42,7 +42,7 @@ class PopularViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
             intent.putExtra("price",food.price)
             intent.putExtra("ordertimes",food.ordertimes)
             intent.putExtra("sort",food.sort)
-            it.getContext().startActivity(intent)
+            it.context.startActivity(intent)
         }
 
     }

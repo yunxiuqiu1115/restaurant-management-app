@@ -14,10 +14,7 @@ import kotlinx.android.synthetic.main.fragment_accessory.*
 
 class AccessoryFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,8 +24,8 @@ class AccessoryFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_accessory, container, false)
     }
 
-    override fun onStart() {
-        super.onStart()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         screenshot_map.setOnClickListener(){
             val intent = Intent(
                 Intent.ACTION_VIEW,
@@ -37,6 +34,8 @@ class AccessoryFragment : Fragment() {
             startActivity(intent)
         }
     }
+
+
 
 
 

@@ -29,22 +29,25 @@ class MainFragment : Fragment() {
             .setTimestampsInSnapshotsEnabled(true)
             .build()
         db.firestoreSettings = settings
+        Log.d("mylog","This is oncreate page")
     }
 
     override fun onCreateView(
+
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        Log.d("mylog","This is oncreateview page")
         return inflater.inflate(R.layout.fragment_main, container, false)
     }
 
-    override fun onStart(){
-        super.onStart()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val adapter = OrderAdapter(mainList)
         main_recyclerView.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL,false)
         main_recyclerView.adapter = adapter
-        Log.d("mylog","This is main page")
+        Log.d("mylog","This is viewCreated page")
         db.collection("food")
             .whereEqualTo("sort","main")
             .get()
@@ -69,6 +72,7 @@ class MainFragment : Fragment() {
                                     document.get("sort").toString()
                                 ))
                         }
+                        Log.d("mylog",mainList.toString())
                         adapter.notifyDataSetChanged()
                     }
                 } else {
@@ -76,5 +80,8 @@ class MainFragment : Fragment() {
                 }
             }
     }
-
 }
+
+
+
+

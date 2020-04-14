@@ -27,12 +27,12 @@ class OrderFragment : Fragment() {
         val view = inflater.inflate(R.layout.order_tab_holder, container, false)
         tabLayout = view.findViewById(R.id.tabs) as TabLayout
         viewPager = view.findViewById(R.id.view_pager) as ViewPager
-        viewPager!!.setAdapter(MyAdapter(fragmentManager))
+        viewPager!!.adapter = MyAdapter(fragmentManager)
         tabLayout!!.post(Runnable { tabLayout!!.setupWithViewPager(viewPager) })
         return view
     }
     private inner class MyAdapter(fm: FragmentManager?) : FragmentPagerAdapter(fm!!, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
-        private val int_items = 3;
+        private val intItems = 3;
 
         override fun getItem(position: Int): Fragment {
             var fragment: Fragment? = null
@@ -45,7 +45,7 @@ class OrderFragment : Fragment() {
         }
 
         override fun getCount(): Int {
-            return int_items
+            return intItems
         }
 
         override fun getPageTitle(position: Int): CharSequence? {

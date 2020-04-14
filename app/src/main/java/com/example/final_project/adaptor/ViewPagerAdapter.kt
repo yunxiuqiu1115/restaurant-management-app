@@ -18,9 +18,9 @@ class ViewPagerAdapter2(fm: FragmentManager) : FragmentPagerAdapter(fm) {
             0 -> HomeFragment()
             1 -> OrderFragment()
             2 -> ServiceFragment()
-            else -> {
-                AccessoryFragment()
-            }
+            3 -> AccessoryFragment()
+
+            else -> HomeFragment()
         }
     }
 
