@@ -31,4 +31,10 @@
         <item name="android:fontFamily">@font/raleway_light</item>
     </style>
 
+    <style name="item">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#80000000</item>
+        <item name="android:fontFamily">@font/raleway_light</item>
+    </style>
+
 </resources>

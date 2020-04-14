@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#fff"
     tools:context=".fragments.ServiceFragment">
 
@@ -19,23 +20,35 @@
             android:gravity="center_horizontal"
             android:background="@drawable/bg_top">
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="40dp"
-                />
-
-            <TextView
-                android:id="@+id/profile_name"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/full_name"
-                android:layout_marginTop="10dp"
-                style="@style/TextName"/>
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="100dp">
 
+
+                <TextView
+                    android:id="@+id/profile_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/full_name"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    style="@style/TextName"/>
+
+                <ImageView
+                    android:id="@+id/update_profile"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_settings_black_24dp" />
+
+            </LinearLayout>
         </LinearLayout>
 
+
         <FrameLayout
+            android:id="@+id/order_history"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="-25dp"
@@ -44,6 +57,7 @@
             android:background="@drawable/bg_button_rounded">
 
             <ImageView
+
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:padding="6dp"
@@ -102,7 +116,10 @@
                         android:text="@string/username"
                         style="@style/TextDescription"/>
 
+
                 </LinearLayout>
+
+
 
             </LinearLayout>
 
@@ -243,6 +260,7 @@
                         style="@style/TextDescription"/>
 
                 </LinearLayout>
+
 
             </LinearLayout>
 
