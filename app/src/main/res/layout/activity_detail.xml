@@ -55,8 +55,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:textColor="@color/TextColor"
-        android:fontFamily="sans-serif-smallcaps"
+        android:textStyle="bold"
+        android:textColor="#80000000"
+        style="@style/TextName"
         android:textSize="20sp"
         android:layout_centerHorizontal="true"
         android:textAlignment="center" />
@@ -64,11 +65,12 @@
     <TextView
         android:id="@+id/popular_food_price"
         android:layout_width="wrap_content"
-        android:textColor="@color/TextColor"
         android:layout_height="wrap_content"
         android:layout_below="@+id/popular_food_description"
         android:layout_marginTop="12dp"
-        android:fontFamily="sans-serif-smallcaps"
+        android:textStyle="bold"
+        android:textColor="#80000000"
+        style="@style/TextName"
         android:textSize="30sp"
         android:layout_centerHorizontal="true"
         android:textAlignment="center" />

@@ -47,11 +47,12 @@
             android:alpha="0.75"
             android:layout_marginLeft="25dp"
             android:layout_width="240dp"
-            android:fontFamily="sans-serif-smallcaps"
             android:layout_height="wrap_content"
             android:textSize="25dp"
             android:text="XX N Central Ave \nClayton, MO 63105"
-            android:textColor="@color/TextColor"
+            android:textStyle="bold"
+            android:textColor="#80000000"
+            style="@style/TextName"
             android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/screenshot_map">
@@ -63,10 +64,11 @@
             android:layout_marginLeft="25dp"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-smallcaps"
+            android:textStyle="bold"
+            android:textColor="#80000000"
+            style="@style/TextName"
             android:textSize="25dp"
             android:text="Bussiness Time: \n 7am - 9pm, M-F"
-            android:textColor="@color/TextColor"
             android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/hint">
@@ -81,8 +83,9 @@
             android:alpha="0.75"
             android:textSize="25dp"
             android:text="314-888-8888\n deli@steak.co"
-            android:fontFamily="sans-serif-smallcaps"
-            android:textColor="@color/TextColor"
+            android:textStyle="bold"
+            android:textColor="#80000000"
+            style="@style/TextName"
             android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/open_time">
@@ -100,11 +103,6 @@
             >
 
         </Button>
-
-
-
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

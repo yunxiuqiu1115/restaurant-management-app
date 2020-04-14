@@ -10,11 +10,11 @@
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/material_blue_grey_800"
+        android:background="@color/home"
         app:tabGravity="fill"
-        app:tabIndicatorColor="#88807B"
+        app:tabIndicatorColor="#fff"
         app:tabMode="fixed"
-        app:tabSelectedTextColor="#888000"
+        app:tabSelectedTextColor="@color/TextColor"
         app:tabTextColor="#fff"
         app:layout_constraintTop_toTopOf="parent"/>
 

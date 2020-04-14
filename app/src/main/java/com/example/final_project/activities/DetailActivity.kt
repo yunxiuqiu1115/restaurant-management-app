@@ -11,15 +11,23 @@ import android.widget.Adapter
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.example.final_project.R
+import com.google.android.gms.tasks.OnSuccessListener
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.order_food.*
 import kotlinx.android.synthetic.main.order_food.view.*
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 
 class DetailActivity : AppCompatActivity() {
+    var num = 0.0
     lateinit var id:String
+    val mAuth = FirebaseAuth.getInstance()
     lateinit var name:String
     lateinit var description:String
     private var discount = 0
@@ -38,7 +46,7 @@ class DetailActivity : AppCompatActivity() {
         val settings = FirebaseFirestoreSettings.Builder()
             .setTimestampsInSnapshotsEnabled(true)
             .build()
-        db.firestoreSettings = settings
+        db.setFirestoreSettings(settings)
         get()
     }
 
@@ -46,18 +54,18 @@ class DetailActivity : AppCompatActivity() {
         super.onStart()
         get()
         popular_food_name.text = name
-        Picasso.get().load(image).resize(400, 400) // resize the image to these dimensions (in pixel)
+        Picasso.get().load(image).resize(400, 400) // resizes the image to these dimensions (in pixel)
             .centerCrop().into(popular_food_image)
         popular_food_description.text = description
         if(discount==0){
-            popular_food_price.text = price.toString()
+            popular_food_price.text = "$"+price.toString()
         }
         else{
-            val num = Math.round((price - (discount/100.0)*price) * 100.0) / 100.0
-            popular_food_price.text = "Original: $$price\n\n Now: $$num!"
+            num = Math.round((price - (discount/100.0)*price) * 100.0) / 100.0
+            popular_food_price.text = "Original: $"+price.toString() + "\n\n Now: $" + num.toString() + "!"
         }
-        Log.d("amount", "test $amount")
-        if(available){
+        Log.d("amount","test "+amount)
+        if(available==true){
             orderFood.visibility = View.VISIBLE
         }
         else{
@@ -95,6 +103,7 @@ class DetailActivity : AppCompatActivity() {
             .setView(dialogView)
             .setTitle("Please choose the amount you wanna order")
         val mAlertDialog = mBuilder.show()
+        mAlertDialog.window!!.setBackgroundDrawableResource(R.drawable.rounded_button)
         dialogView.amountSpinner.adapter = adapter
         for(i in 1..amount){
             amountArray.add(i)
@@ -104,7 +113,12 @@ class DetailActivity : AppCompatActivity() {
         var number = dialogView.amountSpinner.selectedItemPosition + 1
         mAlertDialog.amountSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, pos: Int, id: Long){
-                mAlertDialog.total_price.text = "Total: "+(pos+1) * price
+                if(discount==0){
+                    mAlertDialog.total_price.text = "Total: "+(pos+1) * price
+                }
+                else{
+                    mAlertDialog.total_price.text = "Total: "+(pos+1) * Math.round((price - (discount/100.0)*price) * 100.0) / 100.0
+                }
                 number = pos + 1
             }
             override fun onNothingSelected(parent: AdapterView<out Adapter>?) {
@@ -115,11 +129,32 @@ class DetailActivity : AppCompatActivity() {
 
         mAlertDialog.order_food_button.setOnClickListener{
             updateFood(number)
+            updateOrder(mAuth.uid!!,number)
             mAlertDialog.dismiss()
             put()
 
         }
 
+    }
+    private fun updateOrder(uid:String,number : Int){
+        val orderMap : MutableMap <String,Any> = HashMap()
+        val current = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)
+        val formatted = current.format(formatter)
+        orderMap["uid"] = uid
+        orderMap["foodname"] = name
+        orderMap["time"] = formatted
+        val totalprice = Math.round( number * price * 100.0) / 100.0
+        orderMap["totalprice"] = totalprice
+        orderMap["amount"] = number
+        db.collection("orders")
+            .add(orderMap)
+            .addOnSuccessListener(OnSuccessListener<DocumentReference>{
+
+            })
+            .addOnFailureListener({
+
+            })
     }
     private fun updateFood(number: Int){
         val foodMap : MutableMap<String,Any> = HashMap()
@@ -144,12 +179,12 @@ class DetailActivity : AppCompatActivity() {
         db.collection("food")
             .document(id!!)
             .update(foodMap)
-            .addOnSuccessListener {
+            .addOnSuccessListener({
                 Log.d("Success","Task Completed!")
-            }
-            .addOnFailureListener {
+            })
+            .addOnFailureListener({
                 Log.d("Fail","Task Failed!")
-            }
+            })
     }
     private fun put(){
         val intent = Intent(this, DetailActivity::class.java)

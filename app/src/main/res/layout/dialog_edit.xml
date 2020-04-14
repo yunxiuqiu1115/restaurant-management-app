@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:background="@drawable/dialog_window"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:id="@+id/edit_name"
+        android:layout_marginTop="22dp"
+        android:layout_width="250dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_height="wrap_content"
+        android:textColorHint="#88807B"
+        android:layout_gravity="center"
+        android:background="@drawable/rounded_edittext_register_login"
+        android:ems="10"
+        android:hint="name"
+        android:inputType="textPersonName"
+        android:paddingLeft="16dp"
+        android:textColor="#222021"
+        android:fontFamily="sans-serif-smallcaps"
+        />
+
+    <EditText
+        android:id="@+id/edit_username"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColorHint="#88807B"
+        android:layout_gravity="center"
+        android:background="@drawable/rounded_edittext_register_login"
+        android:ems="10"
+        android:hint="username"
+        android:paddingLeft="16dp"
+        android:textColor="#222021"
+        android:fontFamily="sans-serif-smallcaps"
+        />
+
+    <EditText
+        android:id="@+id/edit_email"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColorHint="#88807B"
+
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_edittext_register_login"
+        android:ems="10"
+        android:hint="email"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="16dp"
+        android:textColor="#222021"
+        android:fontFamily="sans-serif-smallcaps"
+        />
+
+    <EditText
+        android:id="@+id/edit_address"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColorHint="#88807B"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_edittext_register_login"
+        android:ems="10"
+        android:hint="address"
+        android:paddingLeft="16dp"
+        android:textColor="#222021"
+        android:fontFamily="sans-serif-smallcaps"
+        />
+
+    <EditText
+        android:id="@+id/edit_birthday"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:textColorHint="#88807B"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_edittext_register_login"
+        android:ems="10"
+        android:hint="birthday"
+        android:paddingLeft="16dp"
+        android:textColor="#222021"
+        android:inputType="date"
+        android:fontFamily="sans-serif-smallcaps"
+        />
+
+    <EditText
+        android:id="@+id/edit_phone"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:textColorHint="#88807B"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_edittext_register_login"
+        android:ems="10"
+        android:hint="phone"
+        android:paddingLeft="16dp"
+        android:textColor="#222021"
+        android:inputType="phone"
+        android:fontFamily="sans-serif-smallcaps"
+        />
+
+    <Button
+        android:id="@+id/edit_button"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/rounded_button"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="Update"
+        android:textStyle="bold">
+
+    </Button>
+
+
+</LinearLayout>

@@ -28,12 +28,8 @@ class HomeActivity : AppCompatActivity() {
             }
         }
 
-
         vpa = ViewPagerAdapter2(supportFragmentManager)
         viewpager.adapter = vpa
         viewpager.offscreenPageLimit = 3
-
-
-
     }
 }
