@@ -4,13 +4,13 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.google.gms.google-services'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 28
     buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.example.final_project"
-        minSdkVersion 29
-        targetSdkVersion 29
+        minSdkVersion 26
+
         versionCode 1
         versionName "1.0"
         multiDexEnabled true

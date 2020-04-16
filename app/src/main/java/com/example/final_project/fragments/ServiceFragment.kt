@@ -33,7 +33,7 @@ class ServiceFragment : Fragment() {
         val settings = FirebaseFirestoreSettings.Builder()
             .setTimestampsInSnapshotsEnabled(true)
             .build()
-        db.setFirestoreSettings(settings)
+        db.firestoreSettings = settings
     }
 
     override fun onCreateView(
@@ -68,7 +68,7 @@ class ServiceFragment : Fragment() {
         val email = mAuth.currentUser!!.email
         profile_email.text = email
         val username = "username"
-        profile_username.text = "@"+username
+        profile_username.text = "@$username"
         val phone = "+1 585 077 2221"
         profile_phone.text = phone
 
@@ -86,21 +86,20 @@ class ServiceFragment : Fragment() {
             .addOnSuccessListener(OnSuccessListener<DocumentReference>{
 
             })
-            .addOnFailureListener({
+            .addOnFailureListener {
 
-            })
+            }
 
     }
     private fun updateUI(){
         db.collection("users")
             .whereEqualTo("uid",uid)
             .get()
-            .addOnCompleteListener({task->
+            .addOnCompleteListener { task->
                 if(task.isSuccessful){
                     if(task.result!!.isEmpty){
                         createUser()
-                    }
-                    else{
+                    } else{
                         for(document in task.result!!){
                             profileid = document.id
                             profile_name.text = document.get("name").toString()
@@ -112,7 +111,7 @@ class ServiceFragment : Fragment() {
                         }
                     }
                 }
-            })
+            }
     }
     private fun dialogView(){
         val dialogView = LayoutInflater.from(this.context).inflate(R.layout.dialog_edit,null)
@@ -133,12 +132,11 @@ class ServiceFragment : Fragment() {
         db.collection("users")
             .whereEqualTo("uid",uid)
             .get()
-            .addOnCompleteListener({task->
+            .addOnCompleteListener { task->
                 if(task.isSuccessful){
                     if(task.result!!.isEmpty){
                         createUser()
-                    }
-                    else{
+                    } else{
                         for(document in task.result!!){
                             profileid = document.id
                             mAlertDialog.edit_name.setText(document.get("name").toString())
@@ -150,7 +148,7 @@ class ServiceFragment : Fragment() {
                         }
                     }
                 }
-            })
+            }
     }
     private fun submitUpdate(mAlertDialog : AlertDialog){
         val userMap : MutableMap<String,Any> = HashMap()
@@ -165,12 +163,12 @@ class ServiceFragment : Fragment() {
         db.collection("users")
             .document(profileid!!)
             .update(userMap)
-            .addOnSuccessListener({
+            .addOnSuccessListener {
 
-            })
-            .addOnFailureListener({
+            }
+            .addOnFailureListener {
 
-            })
+            }
 
     }
 }

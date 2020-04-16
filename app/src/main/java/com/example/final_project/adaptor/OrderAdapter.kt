@@ -14,23 +14,21 @@ import com.squareup.picasso.Picasso
 
 class OrderViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     RecyclerView.ViewHolder(inflater.inflate(R.layout.menu_item,parent,false)){
-    private val foodImage: ImageView
+    private val foodImage: ImageView = itemView.findViewById(R.id.image_view)
+
     //    private lateinit var activity: AppCompatActivity
-    private val foodName: TextView
-    private val price : TextView
+    private val foodName: TextView = itemView.findViewById(R.id.menu_food_name)
+    private val price : TextView = itemView.findViewById(R.id.menu_food_price)
 
     init{
-        foodImage = itemView.findViewById(R.id.image_view)
-        foodName = itemView.findViewById(R.id.menu_food_name)
-        price = itemView.findViewById(R.id.menu_food_price)
-//        activity = HomeActivity()
+        //        activity = HomeActivity()
     }
 
     fun bind(food: Food){
         foodName?.text = food.name
         Picasso.get().load(food.image).resize(250, 250) // resizes the image to these dimensions (in pixel)
             .centerCrop().into(foodImage)
-        foodImage.setClipToOutline(true)
+        foodImage.clipToOutline = true
         price.text = "$ "+food.price.toString()
 
         foodImage.setOnClickListener{

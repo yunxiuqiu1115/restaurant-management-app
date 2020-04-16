@@ -26,12 +26,12 @@ class DealViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
 
     fun bind(food: Food){
         foodDiscount?.text = food.discount.toString() + "% OFF!"
-        Picasso.get().load(food.image).resize(500, 500) // resizes the image to these dimensions (in pixel)
+        Picasso.get().load(food.image).resize(500, 500) // resize the image to these dimensions (in pixel)
             .centerCrop().into(foodImage)
         foodImage.clipToOutline = true
 
         foodImage.setOnClickListener{
-            val intent = Intent(it.getContext(), DetailActivity::class.java)
+            val intent = Intent(it.context, DetailActivity::class.java)
             intent.putExtra("id",food.id)
             intent.putExtra("name",food.name)
             intent.putExtra("description",food.description)

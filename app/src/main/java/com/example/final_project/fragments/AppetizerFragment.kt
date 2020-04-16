@@ -14,6 +14,7 @@ import com.example.final_project.adaptor.PopularAdapter
 import com.example.final_project.util.Food
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
+import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.fragment_appetizer.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -27,7 +28,7 @@ class AppetizerFragment : Fragment() {
         val settings = FirebaseFirestoreSettings.Builder()
             .setTimestampsInSnapshotsEnabled(true)
             .build()
-        db.setFirestoreSettings(settings)
+        db.firestoreSettings = settings
     }
 
     override fun onCreateView(
@@ -47,17 +48,16 @@ class AppetizerFragment : Fragment() {
         db.collection("food")
             .whereEqualTo("sort","appetizer")
             .get()
-            .addOnCompleteListener({task->
+            .addOnCompleteListener { task->
                 if(task.isSuccessful){
                     if(task.result!!.isEmpty){
                         Log.d("reach","Don't have a Menu")
-                    }
-                    else{
+                    } else{
                         appeList.clear()
                         for(document in task.result!!){
                             appeList.add(
                                 Food(
-                                document.get("id").toString(),
+                                    document.get("id").toString(),
                                     document.get("name").toString(),
                                     document.get("amount").toString().toInt(),
                                     document.get("description").toString(),
@@ -68,14 +68,15 @@ class AppetizerFragment : Fragment() {
                                     document.get("price").toString().toDouble(),
                                     document.get("sort").toString()
 
-                            ))
+                                ))
                         }
                         adapter.notifyDataSetChanged()
                     }
                 } else {
                     println("failed")
                 }
-            })
+            }
+
     }
 
 }

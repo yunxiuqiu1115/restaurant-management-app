@@ -26,7 +26,7 @@ class HistoryActivity : AppCompatActivity() {
         val settings = FirebaseFirestoreSettings.Builder()
             .setTimestampsInSnapshotsEnabled(true)
             .build()
-        db.setFirestoreSettings(settings)
+        db.firestoreSettings = settings
     }
 
     override fun onStart(){
@@ -44,12 +44,11 @@ class HistoryActivity : AppCompatActivity() {
         db.collection("orders")
             .whereEqualTo("uid",uid)
             .get()
-            .addOnCompleteListener({task->
+            .addOnCompleteListener { task->
                 if(task.isSuccessful){
                     if(task.result!!.isEmpty){
                         Log.d("reach","Don't have history")
-                    }
-                    else{
+                    } else{
                         Log.d("reach","Have history")
                         historyList.clear()
                         for(document in task.result!!){
@@ -70,7 +69,7 @@ class HistoryActivity : AppCompatActivity() {
                 } else {
                     println("failed")
                 }
-            })
+            }
     }
 
 }

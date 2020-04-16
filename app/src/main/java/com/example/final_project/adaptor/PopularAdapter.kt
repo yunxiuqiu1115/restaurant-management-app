@@ -14,19 +14,18 @@ import com.squareup.picasso.Picasso
 
 class PopularViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     RecyclerView.ViewHolder(inflater.inflate(R.layout.food_item,parent,false)){
-    private val foodImage: ImageView
-//    private lateinit var activity: AppCompatActivity
-    private val foodName: TextView
+    private val foodImage: ImageView = itemView.findViewById(R.id.food_image)
+
+    //    private lateinit var activity: AppCompatActivity
+    private val foodName: TextView = itemView.findViewById(R.id.food_name)
 
     init{
-        foodImage = itemView.findViewById(R.id.food_image)
-        foodName = itemView.findViewById(R.id.food_name)
-//        activity = HomeActivity()
+        //        activity = HomeActivity()
     }
 
     fun bind(food: Food){
         foodName?.text = food.name
-        Picasso.get().load(food.image).resize(400, 400) // resizes the image to these dimensions (in pixel)
+        Picasso.get().load(food.image).resize(700, 700) // resizes the image to these dimensions (in pixel)
             .centerCrop().into(foodImage)
         foodImage.clipToOutline = true
 

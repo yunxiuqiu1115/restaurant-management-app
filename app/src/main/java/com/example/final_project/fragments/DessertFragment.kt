@@ -14,6 +14,7 @@ import com.example.final_project.adaptor.PopularAdapter
 import com.example.final_project.util.Food
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
+import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.fragment_appetizer.*
 import kotlinx.android.synthetic.main.fragment_dessert.*
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -76,6 +77,7 @@ class DessertFragment : Fragment() {
                     println("failed")
                 }
             }
+
     }
 
 }

@@ -15,6 +15,7 @@ import com.example.final_project.adaptor.PopularAdapter
 import com.example.final_project.util.Food
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
+import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
@@ -29,7 +30,8 @@ class HomeFragment : Fragment() {
         val settings = FirebaseFirestoreSettings.Builder()
             .setTimestampsInSnapshotsEnabled(true)
             .build()
-        db.setFirestoreSettings(settings)
+        db.firestoreSettings = settings
+
     }
 
     override fun onCreateView(
@@ -43,8 +45,8 @@ class HomeFragment : Fragment() {
     override fun onStart(){
         super.onStart()
         val adapter = PopularAdapter(popularList)
-        recyclerView.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL,false)
-        recyclerView.adapter = adapter
+        recycle1.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL,false)
+        recycle1.adapter = adapter
 
         val adapter2 = DealAdapter(dealList)
         recyclerView2.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL,false)
@@ -53,7 +55,7 @@ class HomeFragment : Fragment() {
 
         db.collection("food")
             .get()
-            .addOnCompleteListener({
+            .addOnCompleteListener {
                 if(it.isSuccessful){
                     foodList.clear()
                     for(document in it.result!!){
@@ -76,7 +78,7 @@ class HomeFragment : Fragment() {
                     popularList.clear()
                     for(i in 0..4){
                         popularList.add(foodList[i])
-//                        dealList.add(foodList[i])
+        //                        dealList.add(foodList[i])
                     }
                     adapter.notifyDataSetChanged()
 
@@ -89,13 +91,16 @@ class HomeFragment : Fragment() {
                     adapter2.notifyDataSetChanged()
 
 
-
                 } else {
                     println("failed")
                     Log.d("debug","failed!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
                 }
-            })
+            }
+
 
     }
+
+
+
 
 }

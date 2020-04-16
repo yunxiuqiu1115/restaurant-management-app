@@ -24,6 +24,8 @@ class ViewPagerAdapter2(fm: FragmentManager) : FragmentPagerAdapter(fm) {
         }
     }
 
+
+
     override fun getCount(): Int {
         return 4
     }

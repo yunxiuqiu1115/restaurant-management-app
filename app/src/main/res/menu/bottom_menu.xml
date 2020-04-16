@@ -7,18 +7,22 @@
         android:title="Home"
         app:cnb_iconColor="@color/home"/>
     <item
-        android:id="@+id/order"
+        android:id="@+id/menu"
         android:icon="@drawable/ic_order"
-        android:title="Order"
+        android:title="Menu"
         app:cnb_iconColor="@color/order"/>
     <item
         android:id="@+id/service"
         android:icon="@drawable/ic_service"
-        android:title="Profile"
+        android:title="Order"
         app:cnb_iconColor="@color/service" />
+
+
     <item
         android:id="@+id/accessory"
         android:icon="@drawable/ic_accessory"
-        android:title="Accessory"
+        android:title="About Us"
         app:cnb_iconColor="@color/accesory" />
+
+
 </menu>

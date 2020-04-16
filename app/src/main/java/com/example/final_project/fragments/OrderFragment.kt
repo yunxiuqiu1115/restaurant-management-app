@@ -15,13 +15,12 @@ import androidx.viewpager.widget.ViewPager
 
 //import com.bluapp.kotlinview.R
 import com.google.android.material.tabs.TabLayout
+import kotlinx.android.synthetic.main.activity_home.*
+
 class OrderFragment : Fragment() {
     private var tabLayout: TabLayout? = null
     private var viewPager: ViewPager? = null
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
+    
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.order_tab_holder, container, false)
@@ -29,6 +28,8 @@ class OrderFragment : Fragment() {
         viewPager = view.findViewById(R.id.view_pager) as ViewPager
         viewPager!!.adapter = MyAdapter(fragmentManager)
         tabLayout!!.post(Runnable { tabLayout!!.setupWithViewPager(viewPager) })
+
+        
         return view
     }
     private inner class MyAdapter(fm: FragmentManager?) : FragmentPagerAdapter(fm!!, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
