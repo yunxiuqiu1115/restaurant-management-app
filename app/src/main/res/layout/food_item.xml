@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,23 +17,27 @@
             android:layout_marginTop="12dp"
             android:layout_marginRight="20dp"
             android:layout_centerHorizontal="true"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            />
 
         <TextView
             android:id="@+id/food_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="#fff"
+            android:textColor = "#190707"
             android:alpha="0.9"
             android:textStyle="bold"
             android:fontFamily="sans-serif-smallcaps"
-            android:textSize="24sp"
+            android:textSize="28sp"
             android:layout_centerHorizontal="true"
             android:layout_alignLeft="@+id/food_image"
             android:layout_alignRight="@+id/food_image"
-            android:layout_alignBottom="@+id/food_image"
-            android:textAlignment="center" />
+
+
+            android:textAlignment="center"
+            android:layout_below="@+id/food_image"
+            android:layout_marginTop="10dp"/>
     </RelativeLayout>
 
 

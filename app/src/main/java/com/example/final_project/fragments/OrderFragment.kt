@@ -33,7 +33,7 @@ class OrderFragment : Fragment() {
         return view
     }
     private inner class MyAdapter(fm: FragmentManager?) : FragmentPagerAdapter(fm!!, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
-        private val intItems = 3;
+        private val intItems = 4;
 
         override fun getItem(position: Int): Fragment {
             var fragment: Fragment? = null
@@ -41,6 +41,7 @@ class OrderFragment : Fragment() {
                 0 -> fragment = AppetizerFragment()
                 1 -> fragment = MainFragment()
                 2 -> fragment = DessertFragment()
+                3 -> fragment = CheckoutFragment()
             }
             return fragment!!
         }
@@ -54,6 +55,7 @@ class OrderFragment : Fragment() {
                 0 -> return "Appetizer"
                 1 -> return "Main"
                 2 -> return "Desserts & Drinks"
+                3 -> return "Checkout"
             }
             return null
         }

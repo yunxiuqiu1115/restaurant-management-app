@@ -23,7 +23,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycle1"
-        animation
+
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:orientation="horizontal"
