@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.example.final_project.R
+
 import com.example.final_project.adaptor.OrderAdapter
 import com.example.final_project.adaptor.PopularAdapter
 import com.example.final_project.util.Food
@@ -78,5 +79,6 @@ class AppetizerFragment : Fragment() {
             }
 
     }
+
 
 }
