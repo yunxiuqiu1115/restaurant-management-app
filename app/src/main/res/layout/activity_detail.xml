@@ -8,53 +8,55 @@
     android:background="#fff"
     tools:context=".activities.DetailActivity">
 
-    <TextView
-        android:id="@+id/popular_food_name"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/back_button"
+            android:layout_marginStart="5dp"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+
+            android:background="@drawable/back"
+            />
+        <TextView
+            android:id="@+id/popular_food_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="title"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textSize="60sp"
+
+            android:textColor="@color/TextColor"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+
+
+
+
+
+    <ImageView
+        android:id="@+id/popular_food_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:fontFamily="sans-serif-smallcaps"
-        android:textSize="60sp"
-        android:textColor="@color/TextColor"
+
         android:layout_centerHorizontal="true"
         android:textAlignment="center" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-        <ImageView
-            android:id="@+id/popular_food_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_centerHorizontal="true"
-            android:textAlignment="center" />
 
-        <TextView
-            android:id="@+id/soldOut"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="#fff"
-            android:textStyle="bold"
-            android:fontFamily="sans-serif-smallcaps"
-            android:textSize="40sp"
-            android:layout_centerHorizontal="true"
-            android:layout_alignLeft="@+id/popular_food_image"
-            android:layout_alignRight="@+id/popular_food_image"
-            android:layout_alignBottom="@+id/popular_food_image"
-            android:layout_alignTop="@+id/popular_food_image"
-            android:textAlignment="center" />
-
-    </RelativeLayout>
 
 
     <TextView
         android:id="@+id/popular_food_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+
+
+        android:layout_marginTop="6dp"
         android:textStyle="bold"
         android:textColor="#80000000"
         style="@style/TextName"
@@ -62,35 +64,73 @@
         android:layout_centerHorizontal="true"
         android:textAlignment="center" />
 
-    <TextView
-        android:id="@+id/popular_food_price"
+
+
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/popular_food_description"
-        android:layout_marginTop="12dp"
+        android:layout_below="@+id/popular_food_description">
+        <TextView
+            android:id="@+id/popular_food_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textStyle="bold"
+            android:textColor="#80000000"
+            style="@style/TextName"
+            android:textSize="25sp"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center" />
+
+
+
+
+        <ImageView
+            android:id="@+id/discount_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/popular_food_price"
+            android:layout_alignEnd="@+id/popular_food_price"
+            android:layout_alignBottom="@+id/popular_food_price"
+
+            android:layout_alignTop="@+id/popular_food_price"
+            android:alpha="0.9"
+            >
+
+        </ImageView>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/discount_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
         android:textStyle="bold"
-        android:textColor="#80000000"
+        android:textColor="#FF4040"
         style="@style/TextName"
-        android:textSize="30sp"
+        android:textSize="28sp"
         android:layout_centerHorizontal="true"
         android:textAlignment="center" />
 
-    <Button
-        android:id="@+id/back_button"
-        android:text="Back"
+
+
+    <ImageView
+        android:id="@+id/soldOut"
         android:layout_width="wrap_content"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/rounded_button"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        />
 
     <Button
         android:id="@+id/orderFood"
         android:text="Order"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="8dp"
         android:visibility="invisible"
         android:background="@drawable/rounded_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+
 
 
 </LinearLayout>

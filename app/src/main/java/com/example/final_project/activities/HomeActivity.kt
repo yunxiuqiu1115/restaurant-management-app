@@ -19,7 +19,7 @@ class HomeActivity : AppCompatActivity() {
             when(it){
                 R.id.home -> viewpager.currentItem = 0
                 R.id.menu -> viewpager.currentItem = 1
-                R.id.service -> viewpager.currentItem = 2
+                R.id.profile -> viewpager.currentItem = 2
                 R.id.accessory -> viewpager.currentItem = 3
             }
         }
@@ -36,7 +36,7 @@ class HomeActivity : AppCompatActivity() {
                 when(position){
                     0 -> menu_bottom.setItemSelected(R.id.home)
                     1 -> menu_bottom.setItemSelected(R.id.menu)
-                    2 -> menu_bottom.setItemSelected(R.id.service)
+                    2 -> menu_bottom.setItemSelected(R.id.profile)
                     3 -> menu_bottom.setItemSelected(R.id.accessory)
                 }
             }

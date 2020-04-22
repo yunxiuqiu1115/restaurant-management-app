@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <ImageView
+        android:id="@+id/google_pay"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:src="@drawable/google"
+        android:layout_marginTop="20dp"
+
+        >
+
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/paypal"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:src="@drawable/paypal"
+        android:layout_marginTop="20dp"
+
+        >
+
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/wechat"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:src="@drawable/wechat"
+        android:layout_marginTop="20dp">
+
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/credit_card"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:src="@drawable/cards"
+        android:layout_marginTop="20dp"
+        >
+
+    </ImageView>
+
+    <Button
+        android:id="@+id/payment_cancel_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel Payment"
+        android:layout_marginTop="40dp">
+
+    </Button>
+
+
+
+</LinearLayout>

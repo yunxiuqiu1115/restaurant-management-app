@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View.VISIBLE
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.final_project.R
 import com.example.final_project.adaptor.HistoryAdapter
@@ -13,6 +14,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
 import kotlinx.android.synthetic.main.activity_history.*
+import kotlinx.android.synthetic.main.fragment_order_checkout.*
 
 class HistoryActivity : AppCompatActivity() {
     var historyList : ArrayList<Order> = ArrayList()
@@ -58,12 +60,13 @@ class HistoryActivity : AppCompatActivity() {
                                     document.get("foodname").toString(),
                                     document.get("time").toString(),
                                     document.get("amount").toString().toInt(),
-                                    document.get("totalprice").toString().toDouble()
+                                    document.get("totalprice").toString().toFloat()
                                 )
                             )
                         }
                         historyList.sortByDescending { it.time }
                         Log.d("reach","size "+historyList.size)
+
                         adapter.notifyDataSetChanged()
                     }
                 } else {

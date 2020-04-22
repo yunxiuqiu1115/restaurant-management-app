@@ -14,16 +14,16 @@ import com.squareup.picasso.Picasso
 
 class HistoryViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     RecyclerView.ViewHolder(inflater.inflate(R.layout.history_item,parent,false)){
-    private val name: TextView = itemView.findViewById(R.id.history_food_name)
+//    private val name: TextView = itemView.findViewById(R.id.history_food_name)
     private val time : TextView = itemView.findViewById(R.id.history_time)
-    private val amount : TextView = itemView.findViewById(R.id.history_amount)
-    private val total : TextView = itemView.findViewById(R.id.history_total)
+//    private val amount : TextView = itemView.findViewById(R.id.history_amount)
+//    private val total : TextView = itemView.findViewById(R.id.history_total)
 
     fun bind(order: Order){
-        name.text = order.foodname
+//        name.text = order.foodname
         time.text = order.time
-        amount.text = order.amount.toString()
-        total.text = order.total_price.toString()
+//        amount.text = order.amount.toString()
+//        total.text = order.total_price.toString()
     }
 
 }

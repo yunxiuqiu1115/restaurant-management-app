@@ -61,12 +61,13 @@ class ServiceFragment : Fragment() {
         val uid = mAuth.uid?:""
         val address = "Address: "
         profile_address.text = address
-        val name = "Username: "
+        val name = "Your name: "
         profile_name.text = name
         val birthday = "01/01/1990"
         profile_birthday.text = birthday
         val email = mAuth.currentUser!!.email
         profile_email.text = email
+
         val username = "username"
         profile_username.text = "@$username"
         val phone = "+1 585 077 2221"
@@ -124,6 +125,7 @@ class ServiceFragment : Fragment() {
         retrieve(mAlertDialog)
         mAlertDialog.edit_button.setOnClickListener{
             submitUpdate(mAlertDialog)
+            updateUI()
             mAlertDialog.dismiss()
         }
 

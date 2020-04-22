@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,34 +9,59 @@
     tools:context=".activities.HistoryActivity">
 
     <TextView
-        android:id="@+id/history_title"
+        android:id="@+id/checkout_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Order History"
+        android:text="Order List"
+        android:textColor="#000000"
         android:fontFamily="sans-serif-smallcaps"
         android:textSize="40sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="5dp" />
 
-    <Button
-        android:id="@+id/backButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="back"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/rounded_button"
-        app:layout_constraintTop_toBottomOf="@+id/history_recyclerView"
-        app:layout_constraintStart_toEndOf="@+id/history_title"/>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_marginTop="10dp"
-        android:id="@+id/history_recyclerView"
+        android:id="@+id/checkout_recyclerView"
         android:layout_width="match_parent"
-        app:layout_constraintTop_toBottomOf="@+id/history_title"
-        android:layout_height="500dp"
+
+        app:layout_constraintTop_toBottomOf="@+id/checkout_title"
+        android:layout_height="0dp"
         android:clipToPadding="false"
         android:padding="4dp"/>
+
+
+    <TextView
+        android:id="@+id/grand_total"
+        android:fontFamily="sans-serif-smallcaps"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Total: $20.00"
+        android:textSize="35sp"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/checkout_button"
+        android:layout_marginBottom="15dp"
+        />
+
+    <Button
+        android:id="@+id/checkout_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Checkout"
+
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/rounded_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="invisible"/>
+
+
 
 
 

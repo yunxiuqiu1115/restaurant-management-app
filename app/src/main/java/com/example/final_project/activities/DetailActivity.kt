@@ -23,6 +23,7 @@ import kotlinx.android.synthetic.main.order_food.view.*
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
+import kotlin.math.roundToInt
 
 class DetailActivity : AppCompatActivity() {
     var num = 0.0
@@ -38,6 +39,8 @@ class DetailActivity : AppCompatActivity() {
     lateinit var image:String
     private var price = 0.0
     lateinit var sort:String
+    private val maxSelectionNum = 10
+
     var amountArray:ArrayList<Int> = ArrayList()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,23 +57,25 @@ class DetailActivity : AppCompatActivity() {
         super.onStart()
         get()
         popular_food_name.text = name
-        Picasso.get().load(image).resize(400, 400) // resize the image to these dimensions (in pixel)
+        Picasso.get().load(image).resize(800, 800) // resize the image to these dimensions (in pixel)
             .centerCrop().into(popular_food_image)
         popular_food_description.text = description
         if(discount==0){
-            popular_food_price.text = "$$price"
+            popular_food_price.text = "Original: $$price"
         }
         else{
-            num = Math.round((price - (discount/100.0)*price) * 100.0) / 100.0
-            popular_food_price.text = "Original: $$price\n\n Now: $$num!"
+            popular_food_price.text = "Original: $$price"
+            num = ((price - (discount / 100.0) * price) * 100.0).roundToInt() / 100.0
+            discount_price.text = "Now Only: $$num!!"
+            discount_image.setImageResource(R.drawable.crossout)
         }
         Log.d("amount","test "+amount)
-        if(available==true){
+        if(available){
             orderFood.visibility = View.VISIBLE
         }
         else{
-            popular_food_image.alpha= 0.5f
-            soldOut.text = "SOLD OUT!!!"
+
+            soldOut.setImageResource(R.drawable.soldout)
         }
 
         back_button.setOnClickListener{
@@ -105,7 +110,7 @@ class DetailActivity : AppCompatActivity() {
         val mAlertDialog = mBuilder.show()
         mAlertDialog.window!!.setBackgroundDrawableResource(R.drawable.rounded_button)
         dialogView.amountSpinner.adapter = adapter
-        for(i in 1..amount){
+        for(i in 1..maxSelectionNum){
             amountArray.add(i)
         }
         Log.d("debug ","size "+amountArray.size)
@@ -160,11 +165,14 @@ class DetailActivity : AppCompatActivity() {
         val foodMap : MutableMap<String,Any> = HashMap()
 //        Log.d("Id",id)
         foodMap["name"] = name
-        ordertimes += 1
+
         foodMap["ordertimes"] = ordertimes
         foodMap["description"] = description
         foodMap["discount"] = discount
-        amount -= number
+
+
+        //ordertimes += 1
+        //amount -= number
         foodMap["amount"] = amount
         if(amount==0){
             available = false

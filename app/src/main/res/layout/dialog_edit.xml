@@ -7,98 +7,111 @@
     <EditText
         android:id="@+id/edit_name"
         android:layout_marginTop="22dp"
-        android:layout_width="250dp"
+        android:layout_width="300dp"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
-        android:layout_height="wrap_content"
+        android:layout_height="38dp"
         android:textColorHint="#88807B"
         android:layout_gravity="center"
         android:background="@drawable/rounded_edittext_register_login"
         android:ems="10"
-        android:hint="name"
-        android:inputType="textPersonName"
+        android:hint="Name"
+
         android:paddingLeft="16dp"
         android:textColor="#222021"
-        android:fontFamily="sans-serif-smallcaps"
+        android:fontFamily="sans-serif"
+        android:maxLength="35"
+        android:inputType="textPersonName|textCapWords"
         />
 
     <EditText
         android:id="@+id/edit_username"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_width="300dp"
+        android:layout_height="38dp"
         android:textColorHint="#88807B"
         android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:background="@drawable/rounded_edittext_register_login"
         android:ems="10"
-        android:hint="username"
+        android:hint="Username"
         android:paddingLeft="16dp"
         android:textColor="#222021"
-        android:fontFamily="sans-serif-smallcaps"
+
+        android:fontFamily="sans-serif"
         />
+
+
 
     <EditText
         android:id="@+id/edit_email"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="38dp"
         android:layout_gravity="center"
         android:textColorHint="#88807B"
 
         android:layout_marginTop="20dp"
         android:background="@drawable/rounded_edittext_register_login"
         android:ems="10"
-        android:hint="email"
+        android:hint="Email"
         android:inputType="textEmailAddress"
         android:paddingLeft="16dp"
         android:textColor="#222021"
-        android:fontFamily="sans-serif-smallcaps"
+        android:fontFamily="sans-serif"
+        android:maxLength="35"
         />
 
+
+
+
+
     <EditText
-        android:id="@+id/edit_address"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:id="@+id/edit_phone"
+        android:layout_width="300dp"
+        android:layout_height="38dp"
         android:textColorHint="#88807B"
+        android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:background="@drawable/rounded_edittext_register_login"
         android:ems="10"
-        android:hint="address"
+        android:hint="Phone"
         android:paddingLeft="16dp"
         android:textColor="#222021"
-        android:fontFamily="sans-serif-smallcaps"
+        android:inputType="phone"
+        android:fontFamily="sans-serif"
         />
 
     <EditText
         android:id="@+id/edit_birthday"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="38dp"
         android:textColorHint="#88807B"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:background="@drawable/rounded_edittext_register_login"
         android:ems="10"
-        android:hint="birthday"
+        android:hint="Birthday"
         android:paddingLeft="16dp"
         android:textColor="#222021"
         android:inputType="date"
-        android:fontFamily="sans-serif-smallcaps"
+        android:fontFamily="sans-serif"
         />
-
     <EditText
-        android:id="@+id/edit_phone"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/edit_address"
+        android:layout_marginTop="22dp"
+        android:layout_width="300dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_height="38dp"
         android:textColorHint="#88807B"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
         android:background="@drawable/rounded_edittext_register_login"
         android:ems="10"
-        android:hint="phone"
+        android:hint="Address"
+        android:inputType="textPersonName"
         android:paddingLeft="16dp"
         android:textColor="#222021"
-        android:inputType="phone"
-        android:fontFamily="sans-serif-smallcaps"
+        android:fontFamily="sans-serif"
+        android:maxLength="35"
         />
 
     <Button
@@ -113,6 +126,8 @@
         android:textStyle="bold">
 
     </Button>
+
+
 
 
 </LinearLayout>

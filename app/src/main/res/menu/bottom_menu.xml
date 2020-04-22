@@ -12,9 +12,9 @@
         android:title="Menu"
         app:cnb_iconColor="@color/order"/>
     <item
-        android:id="@+id/service"
+        android:id="@+id/profile"
         android:icon="@drawable/ic_service"
-        android:title="Order"
+        android:title="User Profile"
         app:cnb_iconColor="@color/service" />
 
 
