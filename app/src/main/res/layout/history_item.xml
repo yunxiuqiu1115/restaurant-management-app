@@ -27,6 +27,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:text="Price:"
+            android:padding="3dp"
 
             style="@style/item"/>
 
@@ -37,6 +38,7 @@
             android:textStyle="bold"
             android:text="Type:"
             android:layout_marginLeft="20dp"
+            android:padding="3dp"
 
             style="@style/item"/>
 

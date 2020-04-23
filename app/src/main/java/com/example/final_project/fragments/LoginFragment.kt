@@ -1,5 +1,6 @@
 package com.example.final_project.fragments
 
+
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -9,25 +10,19 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-
-
-
 import com.example.final_project.R
 import com.example.final_project.activities.HomeActivity
+import com.example.final_project.util.Restaurant
 import com.example.final_project.viewModel.LoginViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.FirebaseFirestore
-
 import kotlinx.android.synthetic.main.login_tab_fragment.*
-import kotlinx.android.synthetic.main.register_tab_fragment.*
 
 class LoginFragment: Fragment(){
 
@@ -36,6 +31,7 @@ class LoginFragment: Fragment(){
     private var username : String?=""
     private lateinit var googleSignInClient: GoogleSignInClient
     val mAuth = FirebaseAuth.getInstance()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,6 +46,8 @@ class LoginFragment: Fragment(){
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+
+
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
@@ -60,6 +58,7 @@ class LoginFragment: Fragment(){
 
     override fun onStart() {
         super.onStart()
+
 
 
         submit.setOnClickListener() {

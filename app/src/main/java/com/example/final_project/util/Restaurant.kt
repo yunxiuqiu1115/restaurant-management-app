@@ -1,6 +1,12 @@
 package com.example.final_project.util
 
-data class Restaurant (
-    val resId:Int,
-    val takeout:Boolean
+import android.os.Parcelable
+
+
+
+data class Restaurant  (
+    val id:String,
+    val term:String,
+    val lat: Double,
+    val lon: Double
 )

@@ -3,17 +3,15 @@ package com.example.final_project.adaptor
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
+
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.final_project.R
 import com.example.final_project.util.Order
-import com.google.android.gms.tasks.OnSuccessListener
-import com.google.firebase.firestore.DocumentReference
-import com.google.firebase.firestore.DocumentSnapshot
+
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
+import kotlinx.android.synthetic.main.checkout_item.view.*
 import kotlinx.android.synthetic.main.fragment_order_checkout.view.*
 
 
@@ -32,7 +30,7 @@ class CheckoutViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         val totalStr = order.total_price.toString()
         name.text = order.foodname
         amount.text = "Amount: $amountStr"
-        total.text = "Total: $totalStr"
+        total.text = "$: $totalStr"
     }
 
 
@@ -54,7 +52,7 @@ class CheckoutAdapter(private val orderList:ArrayList<Order>, private var idList
     override fun onBindViewHolder(holder:CheckoutViewHolder,position:Int){
         val order:Order = orderList[position]
         holder.bind(order)
-        holder.itemView.setOnClickListener{
+        holder.itemView.cancel_button_image.setOnClickListener{
             Log.d("mylog", "here")
             removeItem(position)
             removeItemDB(position)

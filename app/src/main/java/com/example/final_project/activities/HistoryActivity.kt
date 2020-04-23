@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.final_project.R
 import com.example.final_project.adaptor.HistoryAdapter
 import com.example.final_project.fragments.ServiceFragment
+import com.example.final_project.util.History
 import com.example.final_project.util.Order
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -17,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_history.*
 import kotlinx.android.synthetic.main.fragment_order_checkout.*
 
 class HistoryActivity : AppCompatActivity() {
-    var historyList : ArrayList<Order> = ArrayList()
+    private var historyList : ArrayList<History> = ArrayList()
     lateinit var db: FirebaseFirestore
     val mAuth = FirebaseAuth.getInstance()
     val uid = mAuth.uid!!
@@ -43,7 +44,7 @@ class HistoryActivity : AppCompatActivity() {
         }
     }
     private fun update(adapter : HistoryAdapter){
-        db.collection("orders")
+        db.collection("history")
             .whereEqualTo("uid",uid)
             .get()
             .addOnCompleteListener { task->
@@ -55,12 +56,11 @@ class HistoryActivity : AppCompatActivity() {
                         historyList.clear()
                         for(document in task.result!!){
                             historyList.add(
-                                Order(
-                                    uid,
-                                    document.get("foodname").toString(),
-                                    document.get("time").toString(),
-                                    document.get("amount").toString().toInt(),
-                                    document.get("totalprice").toString().toFloat()
+                                History(
+                                    document.get("total_price").toString().toFloat(),
+                                    document.get("type").toString(),
+                                    document.get("branch_name").toString(),
+                                    document.get("time").toString()
                                 )
                             )
                         }

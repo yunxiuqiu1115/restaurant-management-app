@@ -47,6 +47,27 @@
 
     </ImageView>
 
+
+
+    <Spinner
+        android:id="@+id/option_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+    </Spinner>
+
+    <Spinner
+        android:id="@+id/res_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+    </Spinner>
+
+
+
+
+
+
     <Button
         android:id="@+id/payment_cancel_button"
         android:layout_width="wrap_content"
@@ -55,6 +76,7 @@
         android:layout_marginTop="40dp">
 
     </Button>
+
 
 
 

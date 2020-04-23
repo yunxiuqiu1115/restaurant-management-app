@@ -3,27 +3,34 @@ package com.example.final_project.fragments
 
 
 import android.app.AlertDialog
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Adapter
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-
 import com.example.final_project.R
 import com.example.final_project.adaptor.CheckoutAdapter
 import com.example.final_project.util.Order
+import com.example.final_project.util.Restaurant
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
-import kotlinx.android.synthetic.main.dialog_edit.*
 import kotlinx.android.synthetic.main.fragment_order_checkout.*
+
+
 import kotlinx.android.synthetic.main.payment_dialog.*
+import kotlinx.android.synthetic.main.payment_dialog.view.*
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 
 class CheckoutFragment : Fragment() {
 
@@ -35,7 +42,13 @@ class CheckoutFragment : Fragment() {
     private var totalPrice = 0f
     private var count = 0
     private lateinit var adapter: CheckoutAdapter
+    private var resList:ArrayList<Restaurant> = ArrayList()
+    var resArray:ArrayList<String> = ArrayList()
 
+    private var resId = 0
+    private var type = ""
+    private var resName = ""
+    private val optionArray = arrayOf<String>("Dine in","Take out")
 
 
 
@@ -49,6 +62,7 @@ class CheckoutFragment : Fragment() {
             .setTimestampsInSnapshotsEnabled(true)
             .build()
         db.firestoreSettings = settings
+        getResList()
     }
 
     override fun onCreateView(
@@ -61,6 +75,7 @@ class CheckoutFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
+
         adapter = CheckoutAdapter(checkoutList, idList)
         checkout_recyclerView.layoutManager =
             LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, false)
@@ -82,6 +97,53 @@ class CheckoutFragment : Fragment() {
             .setTitle("Please Choose your payment method")
 
         val mAlertDialog = mBuilder.show()
+
+
+
+
+
+        var closest = 0
+
+
+        var ooptionAdapter = ArrayAdapter<String>(this.activity,R.layout.support_simple_spinner_dropdown_item,optionArray)
+        dialogView.option_spinner.adapter = ooptionAdapter
+
+        var resAdapter = ArrayAdapter<String>(this.activity,R.layout.support_simple_spinner_dropdown_item,resArray)
+        dialogView.res_spinner.adapter = resAdapter
+
+        adapter.notifyDataSetChanged()
+
+        mAlertDialog.option_spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, pos: Int, id: Long){
+
+                resId = pos
+            }
+            override fun onNothingSelected(parent: AdapterView<out Adapter>?) {
+                resId = 0
+            }
+
+        }
+
+        resName = resArray[resId]
+
+
+        mAlertDialog.res_spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, pos: Int, id: Long){
+                if (pos == 0){
+                    type = "Dine in"
+
+                }
+                else{
+                    type = "Take out"
+                }
+
+            }
+            override fun onNothingSelected(parent: AdapterView<out Adapter>?) {
+                type = "Take out"
+            }
+
+        }
+
 
 
         mAlertDialog.google_pay.setOnClickListener{
@@ -117,12 +179,21 @@ class CheckoutFragment : Fragment() {
 
     private fun paymentSuccessUpdate()
     {
-        val resId = 0
-        val takeout = false
+        val current = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)
+        val formatted = current.format(formatter)
+
+
         //create the history that has all the items and can be checked
         val dbData = hashMapOf("items" to checkoutList,
                                 "resId" to resId,
-                                "takeout" to takeout)
+                                "type" to type,
+                                "time" to formatted,
+                                "branch_name" to resName,
+                                "total_price" to totalPrice,
+                                "uid" to uid
+
+                                )
         db.collection("history")
 
             .add(dbData)
@@ -136,6 +207,29 @@ class CheckoutFragment : Fragment() {
             }
 
         //need to decrement the number of food
+//        var foodMap : MutableMap<String,Any> = HashMap()
+//        var docList:ArrayList<foodAmount> = ArrayList()
+//        for (item in checkoutList){
+//            db.collection("food")
+//                .whereEqualTo("name", item.foodname)
+//                .get()
+//                .addOnCompleteListener { task->
+//                    if(task.isSuccessful){
+//                        for (document in task.result!!){
+//                            docList.add(foodAmount(document.id,item.amount))
+//
+//                        }
+//                    }
+//                }
+//        }
+//        foodMap["amount"]
+//        for (item in docList){
+//            db.collection("food")
+//                .document(item.docId)
+//                .update({amount: 100})
+//                .addOnSuccessListener {
+//                    Log.d("Success","Task Completed!")
+//                }
 
 
         //clear the current checkout_list
@@ -209,4 +303,43 @@ class CheckoutFragment : Fragment() {
                 }
             }
     }
+
+    private fun getResList(){
+        db.collection("Restaurant")
+            .get()
+            .addOnCompleteListener { task->
+                if(task.isSuccessful){
+                    if(task.result!!.isEmpty){
+                        Log.d("reach","Don't have history")
+                    } else{
+
+                        resList.clear()
+                        resArray.clear()
+                        for(document in task.result!!){
+                            resList.add(
+                                Restaurant(
+
+                                    document.id,
+                                    document.get("location_description").toString(),
+                                    document.get("lat").toString().toDouble(),
+                                    document.get("long").toString().toDouble()
+                                )
+                            )
+                        }
+
+
+                        for (item in resList){
+                            resArray.add(item.term)
+                        }
+                        adapter.notifyDataSetChanged()
+                    }
+                } else {
+                    println("failed")
+                }
+            }
+        .addOnFailureListener {
+
+        }
+    }
+
 }
