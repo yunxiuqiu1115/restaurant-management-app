@@ -1,272 +1,289 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#fff"
+    android:orientation="vertical"
     tools:context=".fragments.ServiceFragment">
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.4"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:background="@drawable/bg_top">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="center_horizontal"
+            android:layout_marginTop="80dp">
+
+
+            <TextView
+                android:id="@+id/profile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/full_name"
+                android:textSize="45sp"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:layout_marginVertical="10dp"
+                style="@style/TextName"
+
+                />
+            <ImageView
+                android:id="@+id/update_profile"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="45dp"
+                android:layout_below="@+id/profile_name"
+                android:layout_marginStart="70dp"
+
+                android:src="@drawable/ic_settings_black_24dp" />
+            <TextView
+                android:id="@+id/edit_profile_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit Profile"
+                android:layout_marginTop="50dp"
+                android:layout_below="@+id/profile_name"
+                android:layout_toRightOf="@+id/update_profile">
+
+            </TextView>
+
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:id="@+id/order_history"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="-25dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginStart="80dp"
+        android:background="@drawable/bg_button_rounded">
+
+        <ImageView
+
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:padding="6dp"
+            android:layout_marginStart="7dp"
+            android:layout_gravity="center_vertical"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_back"
+            android:background="@drawable/bg_circle"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order History"
+            android:layout_gravity="center"
+            android:gravity="center"
+            style="@style/TextButton"/>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.6"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_marginTop="20dp"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.4"
-            android:orientation="vertical"
-            android:gravity="center_horizontal"
-            android:background="@drawable/bg_top">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="14dp">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_profile"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_horizontal"
-                android:layout_marginTop="100dp">
-
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/profile_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/full_name"
-                    android:layout_marginTop="10dp"
-                    android:textStyle="bold"
-                    style="@style/TextName"/>
+                    android:text="@string/username_title"
+                    style="@style/TextBlackTitle"/>
 
-                <ImageView
-                    android:id="@+id/update_profile"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/ic_settings_black_24dp" />
+                <TextView
+                    android:id="@+id/profile_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/username"
+                    style="@style/TextDescription"/>
+
 
             </LinearLayout>
+
+
+
         </LinearLayout>
-
-
-        <FrameLayout
-            android:id="@+id/order_history"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="-25dp"
-            android:layout_marginEnd="80dp"
-            android:layout_marginStart="80dp"
-            android:background="@drawable/bg_button_rounded">
-
-            <ImageView
-
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:padding="6dp"
-                android:layout_marginStart="7dp"
-                android:layout_gravity="center_vertical"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_back"
-                android:background="@drawable/bg_circle"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Order History"
-                android:layout_gravity="center"
-                android:gravity="center"
-                style="@style/TextButton"/>
-
-        </FrameLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.6"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="14dp">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="4dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_phone"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="14dp">
+                android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginEnd="10dp"
-                    android:src="@drawable/ic_profile"/>
-
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:text="@string/phone_title"
+                    style="@style/TextBlackTitle"/>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/username_title"
-                        style="@style/TextBlackTitle"/>
-
-                    <TextView
-                        android:id="@+id/profile_username"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/username"
-                        style="@style/TextDescription"/>
-
-
-                </LinearLayout>
-
-
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/phone"
+                    android:id="@+id/profile_phone"
+                    style="@style/TextDescription"/>
 
             </LinearLayout>
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="14dp">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="4dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_email"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="14dp">
+                android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:padding="4dp"
-                    android:layout_marginEnd="10dp"
-                    android:src="@drawable/ic_phone"/>
-
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:text="@string/email_title"
+                    style="@style/TextBlackTitle"/>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/phone_title"
-                        style="@style/TextBlackTitle"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/phone"
-                        android:id="@+id/profile_phone"
-                        style="@style/TextDescription"/>
-
-                </LinearLayout>
+                <TextView
+                    android:id="@+id/profile_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/email"
+                    style="@style/TextDescription"/>
 
             </LinearLayout>
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="14dp">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="4dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_address"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="14dp">
+                android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:padding="4dp"
-                    android:layout_marginEnd="10dp"
-                    android:src="@drawable/ic_email"/>
-
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:text="@string/address_title"
+                    style="@style/TextBlackTitle"/>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/email_title"
-                        style="@style/TextBlackTitle"/>
-
-                    <TextView
-                        android:id="@+id/profile_email"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/email"
-                        style="@style/TextDescription"/>
-
-                </LinearLayout>
+                <TextView
+                    android:id="@+id/profile_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/address"
+                    style="@style/TextDescription"/>
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="14dp">
+        </LinearLayout>
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:padding="4dp"
-                    android:layout_marginEnd="10dp"
-                    android:src="@drawable/ic_address"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="14dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/address_title"
-                        style="@style/TextBlackTitle"/>
-
-                    <TextView
-                        android:id="@+id/profile_address"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/address"
-                        style="@style/TextDescription"/>
-
-                </LinearLayout>
-
-            </LinearLayout>
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="4dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_cake_black_24dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="14dp">
+                android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:padding="4dp"
-                    android:layout_marginEnd="10dp"
-                    android:src="@drawable/ic_cake_black_24dp"/>
-
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:text="Birthday"
+                    style="@style/TextBlackTitle"/>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Birthday"
-                        style="@style/TextBlackTitle"/>
-
-                    <TextView
-                        android:id="@+id/profile_birthday"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="11/15/1995"
-                        style="@style/TextDescription"/>
-
-                </LinearLayout>
-
+                <TextView
+                    android:id="@+id/profile_birthday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="11/15/1995"
+                    style="@style/TextDescription"/>
 
             </LinearLayout>
 
 
         </LinearLayout>
 
+
     </LinearLayout>
 
-</FrameLayout>
+
+
+</LinearLayout>

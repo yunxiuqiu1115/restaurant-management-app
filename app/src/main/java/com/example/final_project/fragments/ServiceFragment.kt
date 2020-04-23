@@ -50,6 +50,9 @@ class ServiceFragment : Fragment() {
         update_profile.setOnClickListener{
             dialogView()
         }
+        edit_profile_text.setOnClickListener{
+            dialogView()
+        }
 
         order_history.setOnClickListener{
             val intent = Intent(this.context, HistoryActivity::class.java)

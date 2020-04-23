@@ -69,7 +69,7 @@ class DetailActivity : AppCompatActivity() {
             discount_price.text = "Now Only: $$num!!"
             discount_image.setImageResource(R.drawable.crossout)
         }
-        Log.d("amount","test "+amount)
+        Log.d("amount", "test $amount")
         if(available){
             orderFood.visibility = View.VISIBLE
         }
