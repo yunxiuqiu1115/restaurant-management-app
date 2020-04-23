@@ -14,7 +14,7 @@
         app:tabGravity="fill"
         app:tabIndicatorColor="#fff"
         app:tabMode="fixed"
-        app:tabSelectedTextColor="@color/TextColor"
+        app:tabSelectedTextColor="#FF7F50"
         app:tabTextColor="#fff"
         app:layout_constraintTop_toTopOf="parent"/>
 

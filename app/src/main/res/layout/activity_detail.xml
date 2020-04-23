@@ -28,8 +28,7 @@
             android:layout_marginLeft="10dp"
             android:fontFamily="sans-serif-smallcaps"
             android:textSize="60sp"
-
-            android:textColor="@color/TextColor"
+            android:textColor="#80000000"
             android:layout_centerHorizontal="true"
             android:textAlignment="center" />
     </LinearLayout>

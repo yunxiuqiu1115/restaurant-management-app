@@ -17,8 +17,8 @@
 
         <ImageView
             android:id="@+id/image_view"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:background="@drawable/round_outline"
              />
@@ -29,10 +29,10 @@
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/image_view"
             android:alpha="0.8"
-            android:fontFamily="sans-serif-smallcaps"
-            android:textColor="@color/TextColor"
-            android:layout_marginLeft="10dp"
-            android:textSize="45sp"
+            style="@style/TextName"
+            android:textColor="#60000000"
+            android:layout_marginLeft="30dp"
+            android:textSize="25sp"
             android:textStyle="bold" />
 
         <TextView
@@ -42,10 +42,10 @@
             android:layout_below="@id/menu_food_name"
             android:layout_toEndOf="@id/image_view"
             android:alpha="0.8"
-            android:fontFamily="sans-serif-smallcaps"
-            android:layout_marginLeft="10dp"
-            android:textColor="@color/TextColor"
-            android:textSize="36sp"
+            style="@style/TextName"
+            android:layout_marginLeft="30dp"
+            android:textColor="#60000000"
+            android:textSize="25sp"
             android:textStyle="bold" />
 
     </RelativeLayout>

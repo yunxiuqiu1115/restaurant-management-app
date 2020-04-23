@@ -12,6 +12,7 @@ import com.example.final_project.util.Order
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
 import kotlinx.android.synthetic.main.checkout_item.view.*
+import kotlinx.android.synthetic.main.fragment_order_checkout.*
 import kotlinx.android.synthetic.main.fragment_order_checkout.view.*
 
 
@@ -21,7 +22,6 @@ class CheckoutViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
 
     private val amount : TextView = itemView.findViewById(R.id.checkout_amount)
     private val total : TextView = itemView.findViewById(R.id.checkout_total)
-
 
 
 
@@ -39,11 +39,10 @@ class CheckoutViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
 
 }
 
-class CheckoutAdapter(private val orderList:ArrayList<Order>, private var idList:ArrayList<String>)
+class CheckoutAdapter(private val orderList:ArrayList<Order>, private var idList:ArrayList<String>, var totalPrice : TextView)
     : RecyclerView.Adapter<CheckoutViewHolder>(){
     lateinit var db : FirebaseFirestore
     private var id = ""
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType:Int):CheckoutViewHolder{
         val inflater = LayoutInflater.from(parent.context)
@@ -56,13 +55,17 @@ class CheckoutAdapter(private val orderList:ArrayList<Order>, private var idList
             Log.d("mylog", "here")
             removeItem(position)
             removeItemDB(position)
+            updateUI(order)
         }
     }
     override fun getItemCount():Int = orderList.size
-
+    private fun updateUI(order : Order){
+        val num = totalPrice.text.toString().substring(9).toDouble() - order.total_price
+        val totalNum = Math.round( num * 100.0) / 100.0
+        totalPrice.text = "Total: $ $totalNum"
+    }
     private fun removeItem(position: Int) {
         orderList.removeAt(position)
-
         notifyDataSetChanged()
     }
 

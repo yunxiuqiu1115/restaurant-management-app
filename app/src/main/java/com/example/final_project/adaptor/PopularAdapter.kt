@@ -25,7 +25,7 @@ class PopularViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
 
     fun bind(food: Food){
         foodName?.text = food.name
-        Picasso.get().load(food.image).resize(700, 700) // resizes the image to these dimensions (in pixel)
+        Picasso.get().load(food.image).resize(600, 600) // resizes the image to these dimensions (in pixel)
             .centerCrop().into(foodImage)
         foodImage.clipToOutline = true
 

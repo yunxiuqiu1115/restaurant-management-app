@@ -76,7 +76,7 @@ class CheckoutFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        adapter = CheckoutAdapter(checkoutList, idList)
+        adapter = CheckoutAdapter(checkoutList, idList,grand_total)
         checkout_recyclerView.layoutManager =
             LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, false)
         checkout_recyclerView.adapter = adapter
@@ -112,36 +112,32 @@ class CheckoutFragment : Fragment() {
         dialogView.res_spinner.adapter = resAdapter
 
         adapter.notifyDataSetChanged()
-
+        resName = resArray[resId]
         mAlertDialog.option_spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, pos: Int, id: Long){
-
-                resId = pos
-            }
-            override fun onNothingSelected(parent: AdapterView<out Adapter>?) {
-                resId = 0
-            }
-
-        }
-
-        resName = resArray[resId]
-
-
-        mAlertDialog.res_spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: View, pos: Int, id: Long){
-                if (pos == 0){
+                if(pos == 0){
                     type = "Dine in"
-
                 }
                 else{
                     type = "Take out"
                 }
-
             }
             override fun onNothingSelected(parent: AdapterView<out Adapter>?) {
                 type = "Take out"
             }
+        }
 
+
+
+
+        mAlertDialog.res_spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, pos: Int, id: Long){
+                resId = pos
+                resName = resArray[resId]
+            }
+            override fun onNothingSelected(parent: AdapterView<out Adapter>?) {
+                resId = 0
+            }
         }
 
 

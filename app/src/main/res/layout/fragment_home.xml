@@ -38,16 +38,15 @@
         android:id="@+id/goodDeals"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:layout_marginTop="40dp"
         android:text="Deals of the day"
         android:textStyle="bold"
         android:textColor="#80000000"
         style="@style/TextName"
-        android:textSize="25sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recycle1"
-
         ></TextView>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -55,11 +54,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="horizontal"
-
-
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-
         android:layout_marginBottom="40dp"
         app:layout_constraintTop_toBottomOf="@+id/goodDeals"
          />
