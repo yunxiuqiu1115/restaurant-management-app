@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
@@ -12,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        android:fontFamily="sans-serif-smallcaps"
+        android:fontFamily="@font/muli"
         android:text="Register"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,7 +21,7 @@
     <EditText
         android:id="@+id/username_R"
         android:hint="Username"
-        android:fontFamily="sans-serif-smallcaps"
+        android:fontFamily="@font/muli"
         android:paddingLeft="16dp"
         android:layout_width="250dp"
         android:layout_height="50dp"
@@ -41,7 +40,7 @@
     <EditText
         android:id="@+id/email_R"
         android:hint="Email"
-        android:fontFamily="sans-serif-smallcaps"
+        android:fontFamily="@font/muli"
         android:paddingLeft="16dp"
         android:layout_width="250dp"
         android:textColorHint="#88807B"
@@ -63,7 +62,7 @@
     <EditText
         android:id="@+id/password_R"
         android:hint="Password"
-        android:fontFamily="sans-serif-smallcaps"
+        android:fontFamily="@font/muli"
         android:paddingLeft="16dp"
         android:textColorHint="#88807B"
         android:layout_width="250dp"
@@ -88,9 +87,8 @@
         app:layout_constraintTop_toBottomOf="@+id/email_R"
         app:layout_constraintStart_toEndOf="@+id/password_R"
         android:layout_marginTop="50dp"
-
+        android:alpha="0.2"
         android:background="@drawable/show"
-
         >
 
     </Button>

@@ -59,6 +59,7 @@ class DetailActivity : AppCompatActivity() {
         popular_food_name.text = name
         Picasso.get().load(image).resize(800, 800) // resize the image to these dimensions (in pixel)
             .centerCrop().into(popular_food_image)
+        popular_food_image.clipToOutline = true
         popular_food_description.text = description
         if(discount==0){
             popular_food_price.text = "Original: $$price"

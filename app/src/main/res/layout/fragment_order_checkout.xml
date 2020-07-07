@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:text="Order List"
         android:textColor="#60000000"
-        android:fontFamily="sans-serif-smallcaps"
+        android:fontFamily="@font/muli"
         android:textSize="40sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +25,6 @@
         android:layout_marginTop="10dp"
         android:id="@+id/checkout_recyclerView"
         android:layout_width="match_parent"
-
         app:layout_constraintTop_toBottomOf="@+id/checkout_title"
         android:layout_height="0dp"
         android:clipToPadding="false"
@@ -34,8 +33,7 @@
 
     <TextView
         android:id="@+id/grand_total"
-        android:fontFamily="sans-serif-smallcaps"
-
+        android:fontFamily="@font/muli"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"

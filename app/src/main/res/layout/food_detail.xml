@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:textSize="50dp"
         android:text="RIBEYE"
+        android:fontFamily="@font/muli"
         app:layout_constraintTop_toBottomOf="@id/big_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,8 +35,7 @@
         android:id="@+id/text"
         android:layout_width="400dp"
         android:layout_height="wrap_content"
-
-
+        android:fontFamily="@font/muli"
         android:textSize="18dp"
         android:text="Well-marbled, juicy and savory. Seasoned and flame grilled for a delicious natural flavor."
         app:layout_constraintTop_toBottomOf="@id/title"
@@ -52,6 +52,7 @@
         android:layout_marginTop="20dp"
         android:textSize="40dp"
         android:text="$12.99"
+        android:fontFamily="@font/muli"
         app:layout_constraintTop_toBottomOf="@id/text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

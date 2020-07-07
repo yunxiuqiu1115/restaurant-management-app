@@ -23,8 +23,7 @@
             android:padding="6dp"
             android:layout_width="120dp"
             android:layout_height="60dp"
-
-
+            android:fontFamily="@font/muli"
             android:text="name"
             android:textStyle="bold" />
 
@@ -33,6 +32,7 @@
             android:id="@+id/checkout_amount"
             style="@style/item"
             android:padding="6dp"
+            android:fontFamily="@font/muli"
             android:layout_width="110dp"
             android:layout_height="60dp"
             android:text="amount"
@@ -45,7 +45,7 @@
             android:padding="6dp"
             android:layout_width="100dp"
             android:layout_height="60dp"
-
+            android:fontFamily="@font/muli"
             android:text="$"
 
             android:textStyle="bold" />

@@ -27,6 +27,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:text="Price:"
+            android:fontFamily="@font/muli"
             android:padding="3dp"
 
             style="@style/item"/>
@@ -38,6 +39,7 @@
             android:textStyle="bold"
             android:text="Type:"
             android:layout_marginLeft="20dp"
+            android:fontFamily="@font/muli"
             android:padding="3dp"
 
             style="@style/item"/>
@@ -52,7 +54,7 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:text="Location"
-
+        android:fontFamily="@font/muli"
         style="@style/item"/>
 
     <TextView
@@ -62,6 +64,7 @@
         android:textStyle="bold"
         android:padding="6dp"
         android:text="time"
+        android:fontFamily="@font/muli"
         android:layout_marginEnd="20dp"
         style="@style/item"/>
     </LinearLayout>
