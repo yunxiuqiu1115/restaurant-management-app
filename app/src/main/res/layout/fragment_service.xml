@@ -3,12 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#fff"
     android:orientation="vertical"
     tools:context=".fragments.ServiceFragment">
-
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,6 +43,7 @@
                 android:layout_marginStart="70dp"
 
                 android:src="@drawable/ic_settings_black_24dp" />
+
             <TextView
                 android:id="@+id/edit_profile_text"
                 android:layout_width="wrap_content"
