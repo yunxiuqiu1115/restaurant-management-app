@@ -2,7 +2,7 @@
 
 You can install this application from [Google Play Store](https://play.google.com/store/apps/details?id=com.restaurant.final_project).
 
-![Google Play Store](./app/src/main/res/drawable/Google Play Store.png)
+![Google Play Store](./app/src/main/res/drawable/GooglePlayStore.png)
 
 ![UI](./app/src/main/res/drawable/UI.png)
 
